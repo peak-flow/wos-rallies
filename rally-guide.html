@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Out Survival - Rally Hero Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        .hero-jessie {
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+        }
+        .hero-patrick {
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+        }
+        .glow-red {
+            box-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
+        }
+        .glow-blue {
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <div x-data="rallyGuide()" class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="text-center mb-12 fade-in">
+            <h1 class="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+                White Out Survival
+            </h1>
+            <h2 class="text-3xl mb-2">Rally Hero Selection Guide</h2>
+            <p class="text-gray-400 text-lg">Master the art of first slot hero selection for rallies</p>
+            
+            <!-- Navigation -->
+            <div class="mt-6 flex justify-center gap-4">
+                <a href="index.html" class="px-6 py-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors">
+                    ← Squad Creation Tutorial
+                </a>
+                <span class="px-6 py-2 bg-purple-600 rounded-lg">
+                    Rally Guide
+                </span>
+            </div>
+        </header>
+
+        <!-- Critical Concept Alert -->
+        <section class="mb-12 max-w-4xl mx-auto">
+            <div class="bg-red-900/30 border-2 border-red-600 rounded-xl p-6 pulse">
+                <h3 class="text-2xl font-bold mb-4 text-red-400 flex items-center justify-center">
+                    <svg class="w-8 h-8 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                    </svg>
+                    Critical: First Slot Hero Sets Rally Bonuses!
+                </h3>
+                <p class="text-center text-lg text-gray-200">
+                    The hero in your FIRST SLOT determines the bonuses for the entire rally.
+                    This is the most important decision for rally participation!
+                </p>
+            </div>
+        </section>
+
+        <!-- Main Content Grid -->
+        <div class="grid lg:grid-cols-2 gap-8 mb-12">
+            <!-- Rally Leader Section -->
+            <section class="fade-in">
+                <div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border-2 border-purple-600 rounded-xl p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-purple-400 flex items-center">
+                        <svg class="w-7 h-7 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                        </svg>
+                        Rally Leader Strategy
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-purple-800/20 rounded-lg p-4">
+                            <h4 class="font-semibold text-purple-300 mb-2">Your Role:</h4>
+                            <p class="text-gray-300">As rally leader, you initiate the attack and coordinate the assault. Your troops form the core of the rally.</p>
+                        </div>
+                        
+                        <div class="bg-purple-800/20 rounded-lg p-4">
+                            <h4 class="font-semibold text-purple-300 mb-2">Hero Selection:</h4>
+                            <p class="text-gray-300 mb-2">Choose your STRONGEST hero for first slot, regardless of type:</p>
+                            <ul class="list-disc list-inside text-sm text-gray-400 ml-4">
+                                <li>Highest level hero</li>
+                                <li>Best gear equipped</li>
+                                <li>Maximum skill upgrades</li>
+                                <li>Hero type doesn't matter - power does!</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-yellow-900/30 border border-yellow-700 rounded-lg p-4">
+                            <p class="text-yellow-300 text-sm">
+                                <strong>Pro Tip:</strong> Your strongest hero maximizes the rally capacity and overall damage output.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rally Joiner Section -->
+            <section class="fade-in">
+                <div class="bg-gradient-to-br from-green-900/40 to-blue-900/40 border-2 border-green-600 rounded-xl p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-green-400 flex items-center">
+                        <svg class="w-7 h-7 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                        </svg>
+                        Rally Joiner Strategy
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-green-800/20 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-300 mb-2">Your Role:</h4>
+                            <p class="text-gray-300">As a rally joiner, you reinforce the leader's attack. Your first slot hero determines your contribution type.</p>
+                        </div>
+                        
+                        <div class="bg-green-800/20 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-300 mb-2">Hero Selection by Rally Type:</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <span class="text-red-400 font-bold mr-2">Attack Rally:</span>
+                                    <span class="text-gray-300">Use Jessie in first slot (JA6 or JA5)</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="text-blue-400 font-bold mr-2">Defense Rally:</span>
+                                    <span class="text-gray-300">Use Patrick in first slot (PD6 or PD5)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-900/30 border border-yellow-700 rounded-lg p-4">
+                            <p class="text-yellow-300 text-sm">
+                                <strong>Pro Tip:</strong> Match your hero type to the rally objective for maximum effectiveness!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Visual Guide Section -->
+        <section class="mb-12">
+            <h3 class="text-2xl font-bold mb-8 text-center">Visual Guide: First Slot Hero Selection</h3>
+            
+            <div class="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- First Slot Importance -->
+                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform">
+                    <div class="bg-gradient-to-r from-purple-600 to-pink-600 p-4">
+                        <h4 class="text-lg font-bold text-center">First Slot = Rally Bonus</h4>
+                    </div>
+                    <div class="p-4">
+                        <img src="first-slot-hero.png" 
+                             alt="First Slot Hero"
+                             class="w-full rounded-lg mb-4">
+                        <p class="text-sm text-gray-300 text-center">
+                            The hero in slot 1 determines all rally bonuses and buffs
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Attack Hero -->
+                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform">
+                    <div class="hero-jessie p-4">
+                        <h4 class="text-lg font-bold text-center">Attack Rally Hero</h4>
+                    </div>
+                    <div class="p-4">
+                        <img src="correct-attack-hero.png" 
+                             alt="Jessie for Attack"
+                             class="w-full rounded-lg mb-4 glow-red">
+                        <p class="text-sm text-gray-300 text-center">
+                            Jessie in first slot for offensive rallies
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Defense Hero -->
+                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform">
+                    <div class="hero-patrick p-4">
+                        <h4 class="text-lg font-bold text-center">Defense Rally Hero</h4>
+                    </div>
+                    <div class="p-4">
+                        <img src="correct-defense-hero.png" 
+                             alt="Patrick for Defense"
+                             class="w-full rounded-lg mb-4 glow-blue">
+                        <p class="text-sm text-gray-300 text-center">
+                            Patrick in first slot for defensive rallies
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Decision Matrix -->
+        <section class="mb-12 max-w-4xl mx-auto">
+            <h3 class="text-2xl font-bold mb-6 text-center">Quick Decision Matrix</h3>
+            
+            <div class="bg-gray-800 rounded-xl p-8 shadow-2xl">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b-2 border-gray-700">
+                            <th class="text-left py-3 px-4">Scenario</th>
+                            <th class="text-center py-3 px-4">Your Role</th>
+                            <th class="text-center py-3 px-4">First Slot Hero</th>
+                            <th class="text-center py-3 px-4">Squad to Use</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-700">
+                        <tr class="hover:bg-gray-700/50 transition-colors">
+                            <td class="py-4 px-4">Attacking Enemy Base</td>
+                            <td class="text-center text-purple-400">Rally Leader</td>
+                            <td class="text-center text-yellow-400">Strongest Hero</td>
+                            <td class="text-center">Any (Power > Type)</td>
+                        </tr>
+                        <tr class="hover:bg-gray-700/50 transition-colors">
+                            <td class="py-4 px-4">Attacking Enemy Base</td>
+                            <td class="text-center text-green-400">Rally Joiner</td>
+                            <td class="text-center text-red-400">Jessie</td>
+                            <td class="text-center">JA6 or JA5</td>
+                        </tr>
+                        <tr class="hover:bg-gray-700/50 transition-colors">
+                            <td class="py-4 px-4">Defending Alliance Member</td>
+                            <td class="text-center text-purple-400">Rally Leader</td>
+                            <td class="text-center text-yellow-400">Strongest Hero</td>
+                            <td class="text-center">Any (Power > Type)</td>
+                        </tr>
+                        <tr class="hover:bg-gray-700/50 transition-colors">
+                            <td class="py-4 px-4">Defending Alliance Member</td>
+                            <td class="text-center text-green-400">Rally Joiner</td>
+                            <td class="text-center text-blue-400">Patrick</td>
+                            <td class="text-center">PD6 or PD5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Common Mistakes -->
+        <section class="mb-12 max-w-4xl mx-auto">
+            <h3 class="text-2xl font-bold mb-6 text-center">Common Mistakes to Avoid</h3>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-red-900/20 border border-red-700 rounded-xl p-6">
+                    <h4 class="text-lg font-semibold mb-3 text-red-400 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        Mistake #1
+                    </h4>
+                    <p class="text-gray-300 mb-2">Using wrong hero type as rally joiner</p>
+                    <p class="text-sm text-gray-400">This reduces your effectiveness and wastes troops</p>
+                </div>
+                
+                <div class="bg-red-900/20 border border-red-700 rounded-xl p-6">
+                    <h4 class="text-lg font-semibold mb-3 text-red-400 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        Mistake #2
+                    </h4>
+                    <p class="text-gray-300 mb-2">Not checking first slot before joining rally</p>
+                    <p class="text-sm text-gray-400">Always verify your squad's first hero matches the rally type</p>
+                </div>
+                
+                <div class="bg-red-900/20 border border-red-700 rounded-xl p-6">
+                    <h4 class="text-lg font-semibold mb-3 text-red-400 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        Mistake #3
+                    </h4>
+                    <p class="text-gray-300 mb-2">Rally leader not using strongest hero</p>
+                    <p class="text-sm text-gray-400">This limits rally capacity and reduces overall damage</p>
+                </div>
+                
+                <div class="bg-red-900/20 border border-red-700 rounded-xl p-6">
+                    <h4 class="text-lg font-semibold mb-3 text-red-400 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        Mistake #4
+                    </h4>
+                    <p class="text-gray-300 mb-2">Using same squad for all rally types</p>
+                    <p class="text-sm text-gray-400">Have dedicated attack and defense squads ready</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Summary -->
+        <section class="mb-12 max-w-4xl mx-auto">
+            <div class="bg-gradient-to-r from-purple-900/40 to-blue-900/40 border-2 border-purple-600 rounded-xl p-8">
+                <h3 class="text-2xl font-bold mb-6 text-center text-purple-400">Remember These Key Points</h3>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-3">
+                        <h4 class="font-semibold text-lg text-purple-300">Rally Leaders:</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2">•</span>
+                                Always use your STRONGEST hero
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2">•</span>
+                                Hero type doesn't matter - power does
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2">•</span>
+                                Higher power = larger rally capacity
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <h4 class="font-semibold text-lg text-purple-300">Rally Joiners:</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2">•</span>
+                                Attack rally = Jessie first slot
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2">•</span>
+                                Defense rally = Patrick first slot
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2">•</span>
+                                Match hero to rally objective
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-6 pt-6 border-t border-purple-700 text-center">
+                    <p class="text-lg text-purple-200">
+                        First slot hero selection can make or break your rally success!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Navigation -->
+        <footer class="text-center pb-8">
+            <a href="index.html" 
+               class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-colors">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Back to Squad Creation Tutorial
+            </a>
+        </footer>
+    </div>
+
+    <script>
+        function rallyGuide() {
+            return {
+                // Alpine.js data if needed for future interactivity
+            }
+        }
+    </script>
+</body>
+</html>
