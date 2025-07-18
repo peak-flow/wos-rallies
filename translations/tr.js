@@ -1,4 +1,5 @@
-export const tr = {
+window.translations = window.translations || {};
+window.translations.tr = {
   language: 'Dil',
   title: 'Takım Oluşturma Eğitimi',
   subtitle: 'Saldırı ve Savunma Dizilimleri',
