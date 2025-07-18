@@ -1,4 +1,5 @@
-export const ko = {
+window.translations = window.translations || {};
+window.translations.ko = {
   language: '언어',
   title: '부대 편성 튜토리얼',
   subtitle: '공격 및 방어 부대 구성',

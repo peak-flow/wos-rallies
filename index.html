@@ -56,8 +56,13 @@
                 </button>
                 <button @click="setLanguage('pt')" 
                         :class="currentLang === 'pt' ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'"
-                        class="px-3 py-1 rounded-r-lg text-sm font-medium transition-colors">
+                        class="px-3 py-1 text-sm font-medium transition-colors">
                     Português
+                </button>
+                <button @click="setLanguage('ko')" 
+                        :class="currentLang === 'ko' ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'"
+                        class="px-3 py-1 rounded-r-lg text-sm font-medium transition-colors">
+                    한국어
                 </button>
             </div>
         </div>
@@ -343,6 +348,7 @@
     <script src="translations/es.js"></script>
     <script src="translations/tr.js"></script>
     <script src="translations/pt.js"></script>
+    <script src="translations/ko.js"></script>
     
     <script>
         // Translation system (now using loaded translations)
