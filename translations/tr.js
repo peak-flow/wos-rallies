@@ -96,7 +96,7 @@ window.translations.tr = {
   visual: {
     title: 'Görsel Rehber: İlk Slot Kahramanı',
     firstSlot: 'İlk Slot = Ralli Bonusu',
-    firstSlotDesc: 'Slot 1'deki kahraman tüm ralli bonuslarını belirler',
+    firstSlotDesc: 'Slot 1 \'deki kahraman tüm ralli bonuslarını belirler',
     attackHero: 'Saldırı Ralli Kahramanı',
     attackHeroDesc: 'Jessie saldırı rallilerinde ilk slota',
     defenseHero: 'Savunma Ralli Kahramanı',
