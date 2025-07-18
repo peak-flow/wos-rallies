@@ -48,8 +48,13 @@
                 </button>
                 <button @click="setLanguage('fr')" 
                         :class="currentLang === 'fr' ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'"
-                        class="px-3 py-1 rounded-r-lg text-sm font-medium transition-colors">
+                        class="px-3 py-1 text-sm font-medium transition-colors">
                     Français
+                </button>
+                <button @click="setLanguage('es')" 
+                        :class="currentLang === 'es' ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'"
+                        class="px-3 py-1 rounded-r-lg text-sm font-medium transition-colors">
+                    Español
                 </button>
             </div>
         </div>
@@ -61,8 +66,8 @@
             <h1 class="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
                 White Out Survival
             </h1>
-            <h2 class="text-3xl mb-2" x-text="t('title')"></h2>
-            <p class="text-gray-400 text-lg" x-text="t('subtitle')"></p>
+            <h2 class="text-3xl mb-2" x-text="t('rallyTitle')"></h2>
+            <p class="text-gray-400 text-lg" x-text="t('rallySubtitle')"></p>
             
             <!-- Navigation -->
             <div class="mt-6 flex justify-center gap-4">
@@ -310,216 +315,14 @@
         </footer>
     </div>
 
+    <!-- Load translation files -->
+    <script src="translations/en.js"></script>
+    <script src="translations/fr.js"></script>
+    <script src="translations/es.js"></script>
+    
     <script>
-        // Translation system
-        const translations = {
-            en: {
-                language: 'Language',
-                title: 'Rally Hero Selection Guide',
-                subtitle: 'Master the art of first slot hero selection for rallies',
-                nav: {
-                    squadCreation: 'Squad Creation Tutorial',
-                    rallyGuide: 'Rally Guide',
-                    backToSquads: 'Back to Squad Creation Tutorial'
-                },
-                critical: {
-                    title: 'Critical: First Slot Hero Sets Rally Bonuses!',
-                    message: 'The hero in your FIRST SLOT determines the bonuses for the entire rally. This is the most important decision for rally participation!'
-                },
-                leader: {
-                    title: 'Rally Leader Strategy',
-                    role: 'Your Role:',
-                    roleDesc: 'As rally leader, you initiate the attack and coordinate the assault. Your troops form the core of the rally.',
-                    heroSelection: 'Hero Selection:',
-                    heroDesc: 'Choose your STRONGEST hero for first slot, regardless of type:',
-                    tips: [
-                        'Highest level hero',
-                        'Best gear equipped',
-                        'Maximum skill upgrades',
-                        'Hero type doesn\'t matter - power does!'
-                    ],
-                    proTip: 'Pro Tip:',
-                    proTipDesc: 'Your strongest hero maximizes the rally capacity and overall damage output.'
-                },
-                joiner: {
-                    title: 'Rally Joiner Strategy',
-                    role: 'Your Role:',
-                    roleDesc: 'As a rally joiner, you reinforce the leader\'s attack. Your first slot hero determines your contribution type.',
-                    heroSelection: 'Hero Selection by Rally Type:',
-                    attackRally: 'Attack Rally:',
-                    attackChoice: 'Use Jessie in first slot (JA6 or JA5)',
-                    defenseRally: 'Defense Rally:',
-                    defenseChoice: 'Use Patrick in first slot (PD6 or PD5)',
-                    proTip: 'Pro Tip:',
-                    proTipDesc: 'Match your hero type to the rally objective for maximum effectiveness!'
-                },
-                visual: {
-                    title: 'Visual Guide: First Slot Hero Selection',
-                    firstSlot: 'First Slot = Rally Bonus',
-                    firstSlotDesc: 'The hero in slot 1 determines all rally bonuses and buffs',
-                    attackHero: 'Attack Rally Hero',
-                    attackHeroDesc: 'Jessie in first slot for offensive rallies',
-                    defenseHero: 'Defense Rally Hero',
-                    defenseHeroDesc: 'Patrick in first slot for defensive rallies'
-                },
-                matrix: {
-                    title: 'Quick Decision Matrix',
-                    scenario: 'Scenario',
-                    role: 'Your Role',
-                    firstSlot: 'First Slot Hero',
-                    squad: 'Squad to Use',
-                    attackingBase: 'Attacking Enemy Base',
-                    defendingAlly: 'Defending Alliance Member',
-                    rallyLeader: 'Rally Leader',
-                    rallyJoiner: 'Rally Joiner',
-                    strongestHero: 'Strongest Hero',
-                    jessie: 'Jessie',
-                    patrick: 'Patrick',
-                    anySquad: 'Any (Power > Type)',
-                    ja6ja5: 'JA6 or JA5',
-                    pd6pd5: 'PD6 or PD5'
-                },
-                mistakes: {
-                    title: 'Common Mistakes to Avoid',
-                    mistake: 'Mistake',
-                    mistake1: {
-                        title: 'Using wrong hero type as rally joiner',
-                        desc: 'This reduces your effectiveness and wastes troops'
-                    },
-                    mistake2: {
-                        title: 'Not checking first slot before joining rally',
-                        desc: 'Always verify your squad\'s first hero matches the rally type'
-                    },
-                    mistake3: {
-                        title: 'Rally leader not using strongest hero',
-                        desc: 'This limits rally capacity and reduces overall damage'
-                    },
-                    mistake4: {
-                        title: 'Using same squad for all rally types',
-                        desc: 'Have dedicated attack and defense squads ready'
-                    }
-                },
-                summary: {
-                    title: 'Remember These Key Points',
-                    leadersTitle: 'Rally Leaders:',
-                    leadersPoints: [
-                        'Always use your STRONGEST hero',
-                        'Hero type doesn\'t matter - power does',
-                        'Higher power = larger rally capacity'
-                    ],
-                    joinersTitle: 'Rally Joiners:',
-                    joinersPoints: [
-                        'Attack rally = Jessie first slot',
-                        'Defense rally = Patrick first slot',
-                        'Match hero to rally objective'
-                    ],
-                    conclusion: 'First slot hero selection can make or break your rally success!'
-                }
-            },
-            fr: {
-                language: 'Langue',
-                title: 'Guide de Sélection des Héros de Ralliement',
-                subtitle: 'Maîtrisez l\'art de la sélection du héros en première position pour les ralliements',
-                nav: {
-                    squadCreation: 'Tutoriel de Création d\'Escouades',
-                    rallyGuide: 'Guide de Ralliement',
-                    backToSquads: 'Retour au Tutoriel de Création d\'Escouades'
-                },
-                critical: {
-                    title: 'Critique: Le Héros en Première Position Détermine les Bonus de Ralliement!',
-                    message: 'Le héros dans votre PREMIÈRE POSITION détermine les bonus pour tout le ralliement. C\'est la décision la plus importante pour la participation au ralliement!'
-                },
-                leader: {
-                    title: 'Stratégie du Chef de Ralliement',
-                    role: 'Votre Rôle:',
-                    roleDesc: 'En tant que chef de ralliement, vous initiez l\'attaque et coordonnez l\'assaut. Vos troupes forment le cœur du ralliement.',
-                    heroSelection: 'Sélection du Héros:',
-                    heroDesc: 'Choisissez votre héros le PLUS FORT pour la première position, peu importe le type:',
-                    tips: [
-                        'Héros de plus haut niveau',
-                        'Meilleur équipement équipé',
-                        'Compétences améliorées au maximum',
-                        'Le type de héros n\'importe pas - la puissance compte!'
-                    ],
-                    proTip: 'Conseil Pro:',
-                    proTipDesc: 'Votre héros le plus fort maximise la capacité du ralliement et les dégâts globaux.'
-                },
-                joiner: {
-                    title: 'Stratégie du Participant au Ralliement',
-                    role: 'Votre Rôle:',
-                    roleDesc: 'En tant que participant au ralliement, vous renforcez l\'attaque du chef. Votre héros en première position détermine votre type de contribution.',
-                    heroSelection: 'Sélection du Héros par Type de Ralliement:',
-                    attackRally: 'Ralliement d\'Attaque:',
-                    attackChoice: 'Utilisez Jessie en première position (JA6 ou JA5)',
-                    defenseRally: 'Ralliement de Défense:',
-                    defenseChoice: 'Utilisez Patrick en première position (PD6 ou PD5)',
-                    proTip: 'Conseil Pro:',
-                    proTipDesc: 'Adaptez votre type de héros à l\'objectif du ralliement pour une efficacité maximale!'
-                },
-                visual: {
-                    title: 'Guide Visuel: Sélection du Héros en Première Position',
-                    firstSlot: 'Première Position = Bonus de Ralliement',
-                    firstSlotDesc: 'Le héros en position 1 détermine tous les bonus et buffs du ralliement',
-                    attackHero: 'Héros de Ralliement d\'Attaque',
-                    attackHeroDesc: 'Jessie en première position pour les ralliements offensifs',
-                    defenseHero: 'Héros de Ralliement de Défense',
-                    defenseHeroDesc: 'Patrick en première position pour les ralliements défensifs'
-                },
-                matrix: {
-                    title: 'Matrice de Décision Rapide',
-                    scenario: 'Scénario',
-                    role: 'Votre Rôle',
-                    firstSlot: 'Héros en Première Position',
-                    squad: 'Escouade à Utiliser',
-                    attackingBase: 'Attaquer une Base Ennemie',
-                    defendingAlly: 'Défendre un Membre de l\'Alliance',
-                    rallyLeader: 'Chef de Ralliement',
-                    rallyJoiner: 'Participant au Ralliement',
-                    strongestHero: 'Héros le Plus Fort',
-                    jessie: 'Jessie',
-                    patrick: 'Patrick',
-                    anySquad: 'N\'importe (Puissance > Type)',
-                    ja6ja5: 'JA6 ou JA5',
-                    pd6pd5: 'PD6 ou PD5'
-                },
-                mistakes: {
-                    title: 'Erreurs Courantes à Éviter',
-                    mistake: 'Erreur',
-                    mistake1: {
-                        title: 'Utiliser le mauvais type de héros comme participant au ralliement',
-                        desc: 'Cela réduit votre efficacité et gaspille des troupes'
-                    },
-                    mistake2: {
-                        title: 'Ne pas vérifier la première position avant de rejoindre le ralliement',
-                        desc: 'Vérifiez toujours que le premier héros de votre escouade correspond au type de ralliement'
-                    },
-                    mistake3: {
-                        title: 'Le chef de ralliement n\'utilise pas son héros le plus fort',
-                        desc: 'Cela limite la capacité du ralliement et réduit les dégâts globaux'
-                    },
-                    mistake4: {
-                        title: 'Utiliser la même escouade pour tous les types de ralliement',
-                        desc: 'Ayez des escouades dédiées d\'attaque et de défense prêtes'
-                    }
-                },
-                summary: {
-                    title: 'Souvenez-vous de ces Points Clés',
-                    leadersTitle: 'Chefs de Ralliement:',
-                    leadersPoints: [
-                        'Utilisez toujours votre héros le PLUS FORT',
-                        'Le type de héros n\'importe pas - la puissance compte',
-                        'Plus de puissance = plus grande capacité de ralliement'
-                    ],
-                    joinersTitle: 'Participants au Ralliement:',
-                    joinersPoints: [
-                        'Ralliement d\'attaque = Jessie en première position',
-                        'Ralliement de défense = Patrick en première position',
-                        'Adaptez le héros à l\'objectif du ralliement'
-                    ],
-                    conclusion: 'La sélection du héros en première position peut faire ou défaire votre succès au ralliement!'
-                }
-            }
-        };
+        // Translation system (now using loaded translations)
+        const translations = window.translations || {};
 
         // Language switcher component
         function languageSwitcher() {

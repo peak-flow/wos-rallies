@@ -32,22 +32,19 @@
     <!-- Language Switcher Top Bar -->
     <div class="bg-gray-800 border-b border-gray-700 sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-end items-center">
-            <div x-data="languageSwitcher()" class="flex items-center gap-2">
-                <label class="text-sm text-gray-400 mr-2" x-text="t('language')"></label>
-                <button @click="setLanguage('en')" 
-                        :class="currentLang === 'en' ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'"
+            <div x-data="{ lang: localStorage.getItem('language') || 'en' }" 
+                 x-init="$watch('lang', value => { localStorage.setItem('language', value); window.location.reload(); })"
+                 class="flex items-center gap-2">
+                <label class="text-sm text-gray-400 mr-2">Language:</label>
+                <button @click="lang = 'en'" 
+                        :class="lang === 'en' ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'"
                         class="px-3 py-1 rounded-l-lg text-sm font-medium transition-colors">
                     English
                 </button>
-                <button @click="setLanguage('fr')" 
-                        :class="currentLang === 'fr' ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'"
-                        class="px-3 py-1 text-sm font-medium transition-colors">
-                    Français
-                </button>
-                <button @click="setLanguage('es')" 
-                        :class="currentLang === 'es' ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'"
+                <button @click="lang = 'fr'" 
+                        :class="lang === 'fr' ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'"
                         class="px-3 py-1 rounded-r-lg text-sm font-medium transition-colors">
-                    Español
+                    Français
                 </button>
             </div>
         </div>
@@ -59,15 +56,17 @@
             <h1 class="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
                 White Out Survival
             </h1>
-            <h2 class="text-3xl mb-2" x-text="t('title')"></h2>
-            <h3 class="text-2xl mb-2" x-text="t('subtitle')"></h3>
-            <p class="text-gray-400 text-lg" x-text="t('description')"></p>
+            <h2 class="text-3xl mb-2">Squad Creation Tutorial</h2>
+            <h3 class="text-2xl mb-2">Attack & Defense Lineups</h3>
+            <p class="text-gray-400 text-lg">Learn how to create 4 optimized squads with Jessie and Patrick as leaders</p>
             
             <!-- Navigation -->
             <div class="mt-6 flex justify-center gap-4">
-                <span class="px-6 py-2 bg-purple-600 rounded-lg" x-text="t('nav.squadCreation')"></span>
+                <span class="px-6 py-2 bg-purple-600 rounded-lg">
+                    Squad Creation
+                </span>
                 <a href="rally-guide.html" class="px-6 py-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors">
-                    <span x-text="t('nav.rallyGuide')"></span> →
+                    Rally Hero Guide →
                 </a>
             </div>
         </header>
@@ -81,30 +80,30 @@
                         <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"></path>
                         </svg>
-                        <span x-text="t('attackLineup.title')"></span>
+                        Attack Lineup
                     </h3>
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
-                            <span class="font-semibold" x-text="t('attackLineup.leader')"></span>
-                            <span class="text-red-300" x-text="t('attackLineup.leaderName')"></span>
+                            <span class="font-semibold">Leader:</span>
+                            <span class="text-red-300">Jessie (Offensive Focus)</span>
                         </div>
                         <div class="border-t border-red-800 pt-3">
-                            <p class="text-sm text-gray-300 mb-2" x-text="t('attackLineup.squadConfigs')"></p>
+                            <p class="text-sm text-gray-300 mb-2">Squad Configurations:</p>
                             <ul class="space-y-2">
                                 <li class="flex items-center text-sm">
                                     <span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>
                                     <span class="font-semibold mr-2">JA6:</span>
-                                    <span x-text="t('attackLineup.ja6')"></span>
+                                    60% Infantry, 20% Lancer, 20% Marksman
                                 </li>
                                 <li class="flex items-center text-sm">
                                     <span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>
                                     <span class="font-semibold mr-2">JA5:</span>
-                                    <span x-text="t('attackLineup.ja5')"></span>
+                                    50% Infantry, 20% Lancer, 30% Marksman
                                 </li>
                             </ul>
                         </div>
                         <div class="bg-red-800/20 rounded-lg p-3 mt-3">
-                            <p class="text-xs text-red-200" x-text="t('attackLineup.bestFor')"></p>
+                            <p class="text-xs text-red-200">Best for: Aggressive playstyle, base attacks, rally participation</p>
                         </div>
                     </div>
                 </div>
@@ -115,30 +114,30 @@
                         <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                         </svg>
-                        <span x-text="t('defenseLineup.title')"></span>
+                        Defense Lineup
                     </h3>
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
-                            <span class="font-semibold" x-text="t('defenseLineup.leader')"></span>
-                            <span class="text-blue-300" x-text="t('defenseLineup.leaderName')"></span>
+                            <span class="font-semibold">Leader:</span>
+                            <span class="text-blue-300">Patrick (Defensive Focus)</span>
                         </div>
                         <div class="border-t border-blue-800 pt-3">
-                            <p class="text-sm text-gray-300 mb-2" x-text="t('defenseLineup.squadConfigs')"></p>
+                            <p class="text-sm text-gray-300 mb-2">Squad Configurations:</p>
                             <ul class="space-y-2">
                                 <li class="flex items-center text-sm">
                                     <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
                                     <span class="font-semibold mr-2">PD6:</span>
-                                    <span x-text="t('defenseLineup.pd6')"></span>
+                                    60% Infantry, 20% Lancer, 20% Marksman
                                 </li>
                                 <li class="flex items-center text-sm">
                                     <span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
                                     <span class="font-semibold mr-2">PD5:</span>
-                                    <span x-text="t('defenseLineup.pd5')"></span>
+                                    50% Infantry, 20% Lancer, 30% Marksman
                                 </li>
                             </ul>
                         </div>
                         <div class="bg-blue-800/20 rounded-lg p-3 mt-3">
-                            <p class="text-xs text-blue-200" x-text="t('defenseLineup.bestFor')"></p>
+                            <p class="text-xs text-blue-200">Best for: Base defense, garrison, reinforcing allies</p>
                         </div>
                     </div>
                 </div>
@@ -147,32 +146,32 @@
 
         <!-- Squad Overview -->
         <section class="mb-12">
-            <h3 class="text-2xl font-bold mb-6 text-center" x-text="t('squadOverview.title')"></h3>
+            <h3 class="text-2xl font-bold mb-6 text-center">All Squad Configurations</h3>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <template x-for="(squad, index) in squads" :key="index">
                     <div class="squad-card rounded-lg p-6 shadow-xl fade-in transform hover:scale-105 transition-transform duration-300"
                          :class="squad.leader === 'Jessie' ? 'hero-jessie' : 'hero-patrick'">
                         <h4 class="text-xl font-bold mb-3" x-text="squad.name"></h4>
                         <div class="mb-4">
-                            <p class="text-sm opacity-80" x-text="t('squadOverview.leader')"></p>
+                            <p class="text-sm opacity-80">Leader</p>
                             <p class="text-lg font-semibold" x-text="squad.leader"></p>
                         </div>
                         <div class="space-y-2">
                             <div class="flex justify-between items-center">
-                                <span class="text-sm" x-text="t('squadOverview.infantry')"></span>
+                                <span class="text-sm">Infantry</span>
                                 <span class="font-bold" x-text="squad.ratio.infantry + '%'"></span>
                             </div>
                             <div class="flex justify-between items-center">
-                                <span class="text-sm" x-text="t('squadOverview.lancer')"></span>
+                                <span class="text-sm">Lancer</span>
                                 <span class="font-bold" x-text="squad.ratio.lancer + '%'"></span>
                             </div>
                             <div class="flex justify-between items-center">
-                                <span class="text-sm" x-text="t('squadOverview.marksman')"></span>
+                                <span class="text-sm">Marksman</span>
                                 <span class="font-bold" x-text="squad.ratio.marksman + '%'"></span>
                             </div>
                         </div>
                         <div class="mt-4 pt-4 border-t border-white/20">
-                            <p class="text-xs opacity-70" x-text="t('squadOverview.total') + ': ' + (squad.ratio.infantry + squad.ratio.lancer + squad.ratio.marksman) + '%'"></p>
+                            <p class="text-xs opacity-70" x-text="'Total: ' + (squad.ratio.infantry + squad.ratio.lancer + squad.ratio.marksman) + '%'"></p>
                         </div>
                     </div>
                 </template>
@@ -181,12 +180,12 @@
 
         <!-- Tutorial Steps -->
         <section class="mb-12">
-            <h3 class="text-2xl font-bold mb-6 text-center" x-text="t('tutorial.title')"></h3>
+            <h3 class="text-2xl font-bold mb-6 text-center">Step-by-Step Tutorial</h3>
             
             <!-- Progress Bar -->
             <div class="mb-8">
                 <div class="flex justify-between items-center mb-2">
-                    <span class="text-sm" x-text="t('tutorial.progress')"></span>
+                    <span class="text-sm">Progress</span>
                     <span class="text-sm" x-text="currentStep + ' / ' + steps.length"></span>
                 </div>
                 <div class="w-full bg-gray-700 rounded-full h-2">
@@ -215,35 +214,35 @@
                          x-transition:enter-end="opacity-100 transform translate-x-0"
                          class="bg-gray-800 rounded-xl p-8 shadow-2xl">
                         
-                        <h4 class="text-xl font-bold mb-4 text-blue-400" x-text="t('tutorial.step') + ' ' + (index + 1) + ': ' + t(step.titleKey)"></h4>
+                        <h4 class="text-xl font-bold mb-4 text-blue-400" x-text="'Step ' + (index + 1) + ': ' + step.title"></h4>
                         
                         <div class="grid lg:grid-cols-2 gap-8">
                             <!-- Image -->
                             <div class="order-2 lg:order-1">
                                 <img :src="step.image" 
-                                     :alt="t(step.titleKey)"
+                                     :alt="step.title"
                                      class="w-full rounded-lg shadow-lg border-2 border-gray-700">
                             </div>
                             
                             <!-- Instructions -->
                             <div class="order-1 lg:order-2 space-y-4">
-                                <p class="text-gray-300" x-text="t(step.descriptionKey)"></p>
+                                <p class="text-gray-300" x-text="step.description"></p>
                                 
                                 <template x-if="step.tips">
                                     <div class="bg-blue-900/30 border border-blue-700 rounded-lg p-4">
-                                        <h5 class="font-semibold text-blue-400 mb-2" x-text="t('tutorial.tips')"></h5>
+                                        <h5 class="font-semibold text-blue-400 mb-2">Tips:</h5>
                                         <ul class="list-disc list-inside text-sm text-gray-300 space-y-1">
-                                            <template x-for="(tipKey, tipIndex) in step.tips" :key="tipIndex">
-                                                <li x-text="t(tipKey)"></li>
+                                            <template x-for="tip in step.tips" :key="tip">
+                                                <li x-text="tip"></li>
                                             </template>
                                         </ul>
                                     </div>
                                 </template>
 
-                                <template x-if="step.squadConfigKey">
+                                <template x-if="step.squadConfig">
                                     <div class="bg-purple-900/30 border border-purple-700 rounded-lg p-4">
-                                        <h5 class="font-semibold text-purple-400 mb-2" x-text="t('tutorial.squadConfig')"></h5>
-                                        <p class="text-sm text-gray-300" x-text="t(step.squadConfigKey)"></p>
+                                        <h5 class="font-semibold text-purple-400 mb-2">Squad Configuration:</h5>
+                                        <p class="text-sm text-gray-300" x-text="step.squadConfig"></p>
                                     </div>
                                 </template>
                             </div>
@@ -253,18 +252,18 @@
                         <div class="flex justify-between items-center mt-8">
                             <button @click="previousStep()"
                                     :disabled="currentStep === 1"
-                                    class="px-6 py-3 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                                    x-text="t('tutorial.previous')">
+                                    class="px-6 py-3 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                                Previous
                             </button>
                             
                             <div class="text-center">
-                                <p class="text-sm text-gray-400" x-text="t('tutorial.step') + ' ' + currentStep + ' ' + t('tutorial.of') + ' ' + steps.length"></p>
+                                <p class="text-sm text-gray-400" x-text="'Step ' + currentStep + ' of ' + steps.length"></p>
                             </div>
                             
                             <button @click="nextStep()"
                                     :disabled="currentStep === steps.length"
-                                    class="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                                    x-text="t('tutorial.next')">
+                                    class="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                                Next
                             </button>
                         </div>
                     </div>
@@ -274,39 +273,41 @@
 
         <!-- Quick Reference -->
         <section class="mb-12 max-w-4xl mx-auto">
-            <h3 class="text-2xl font-bold mb-6 text-center" x-text="t('quickRef.title')"></h3>
+            <h3 class="text-2xl font-bold mb-6 text-center">Quick Reference</h3>
             <div class="bg-gray-800 rounded-xl p-8 shadow-2xl">
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <h4 class="text-lg font-semibold mb-4 text-red-400" x-text="t('quickRef.attackSquads')"></h4>
+                        <h4 class="text-lg font-semibold mb-4 text-red-400">Attack Squads - Jessie</h4>
                         <ul class="space-y-2 text-gray-300">
                             <li class="flex items-center">
                                 <span class="w-2 h-2 bg-red-400 rounded-full mr-3"></span>
-                                JA6: <span x-text="t('quickRef.ja6Ratio')"></span>
+                                JA6: 60% Infantry, 20% Lancer, 20% Marksman
                             </li>
                             <li class="flex items-center">
                                 <span class="w-2 h-2 bg-red-400 rounded-full mr-3"></span>
-                                JA5: <span x-text="t('quickRef.ja5Ratio')"></span>
+                                JA5: 50% Infantry, 20% Lancer, 30% Marksman
                             </li>
                         </ul>
                     </div>
                     <div>
-                        <h4 class="text-lg font-semibold mb-4 text-blue-400" x-text="t('quickRef.defenseSquads')"></h4>
+                        <h4 class="text-lg font-semibold mb-4 text-blue-400">Defense Squads - Patrick</h4>
                         <ul class="space-y-2 text-gray-300">
                             <li class="flex items-center">
                                 <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
-                                PD6: <span x-text="t('quickRef.pd6Ratio')"></span>
+                                PD6: 60% Infantry, 20% Lancer, 20% Marksman
                             </li>
                             <li class="flex items-center">
                                 <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
-                                PD5: <span x-text="t('quickRef.pd5Ratio')"></span>
+                                PD5: 50% Infantry, 20% Lancer, 30% Marksman
                             </li>
                         </ul>
                     </div>
                 </div>
                 
                 <div class="mt-6 pt-6 border-t border-gray-700">
-                    <p class="text-sm text-gray-400 text-center" x-text="t('quickRef.note')"></p>
+                    <p class="text-sm text-gray-400 text-center">
+                        Note: The ratio percentages should add up to 100% for each squad. Adjust as needed based on your gameplay style.
+                    </p>
                 </div>
             </div>
         </section>
@@ -314,11 +315,13 @@
         <!-- Rally Guide Link -->
         <section class="mb-12 max-w-4xl mx-auto text-center">
             <div class="bg-gradient-to-r from-purple-900/40 to-blue-900/40 border-2 border-purple-600 rounded-xl p-8">
-                <h3 class="text-2xl font-bold mb-4 text-purple-400" x-text="t('rallyLink.title')"></h3>
-                <p class="text-gray-300 mb-6" x-text="t('rallyLink.description')"></p>
+                <h3 class="text-2xl font-bold mb-4 text-purple-400">Master Rally Participation</h3>
+                <p class="text-gray-300 mb-6">
+                    Learn how to select the right hero for rallies and maximize your contribution
+                </p>
                 <a href="rally-guide.html" 
                    class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg hover:from-purple-700 hover:to-blue-700 transition-colors">
-                    <span x-text="t('rallyLink.button')"></span>
+                    <span>View Rally Hero Guide</span>
                     <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
                     </svg>
@@ -327,44 +330,10 @@
         </section>
     </div>
 
-    <!-- Load translation files -->
-    <script src="translations/en.js"></script>
-    <script src="translations/fr.js"></script>
-    <script src="translations/es.js"></script>
-    
     <script>
-        // Translation system (now using loaded translations)
-        const translations = window.translations || {};
-
-        // Language switcher component
-        function languageSwitcher() {
-            return {
-                currentLang: localStorage.getItem('language') || 'en',
-                setLanguage(lang) {
-                    localStorage.setItem('language', lang);
-                    this.currentLang = lang;
-                    window.location.reload();
-                },
-                t(key) {
-                    const lang = this.currentLang;
-                    const keys = key.split('.');
-                    let value = translations[lang];
-                    
-                    for (const k of keys) {
-                        value = value?.[k];
-                    }
-                    
-                    return value || key;
-                }
-            };
-        }
-
         function squadTutorial() {
-            const currentLang = localStorage.getItem('language') || 'en';
-            
             return {
                 currentStep: 1,
-                currentLang: currentLang,
                 squads: [
                     {
                         name: 'Squad 1 - JA6',
@@ -389,85 +358,75 @@
                 ],
                 steps: [
                     {
-                        titleKey: 'steps.1.title',
+                        title: 'Click Profile',
                         image: '1-click-profile.png',
-                        descriptionKey: 'steps.1.description',
-                        tips: ['steps.1.tip1', 'steps.1.tip2']
+                        description: 'Start by clicking on your profile icon in the game interface. This will open your player menu where you can access various game features.',
+                        tips: ['Make sure you\'re in the main game screen', 'The profile icon is usually located in the top-left corner']
                     },
                     {
-                        titleKey: 'steps.2.title',
+                        title: 'Click Troops',
                         image: '2 click troops.png',
-                        descriptionKey: 'steps.2.description',
-                        tips: ['steps.2.tip1', 'steps.2.tip2']
+                        description: 'Navigate to the Troops section from your profile menu. This is where you manage all your military units and squad configurations.',
+                        tips: ['The Troops option shows your current military strength', 'You can view all available units here']
                     },
                     {
-                        titleKey: 'steps.3.title',
+                        title: 'Click Squads',
                         image: '3 click squads.png',
-                        descriptionKey: 'steps.3.description',
-                        tips: ['steps.3.tip1', 'steps.3.tip2']
+                        description: 'Select the Squads option to access squad management. Here you can create, modify, and organize your battle formations.',
+                        tips: ['You can have multiple squads for different strategies', 'Each squad can have a unique configuration']
                     },
                     {
-                        titleKey: 'steps.4.title',
+                        title: 'Select Hero Leader',
                         image: '4 select jessie or patrrick as first hero.png',
-                        descriptionKey: 'steps.4.description',
-                        tips: ['steps.4.tip1', 'steps.4.tip2', 'steps.4.tip3'],
-                        squadConfigKey: 'steps.4.squadConfig'
+                        description: 'Choose either Jessie or Patrick as your squad leader. For this tutorial, create 2 squads with Jessie and 2 with Patrick.',
+                        tips: ['Jessie is great for offensive strategies', 'Patrick excels in defensive formations', 'Leader choice affects squad bonuses'],
+                        squadConfig: 'First 2 squads: Jessie | Last 2 squads: Patrick'
                     },
                     {
-                        titleKey: 'steps.5.title',
+                        title: 'Select Balance Type',
                         image: '5 select balance.png',
-                        descriptionKey: 'steps.5.description',
-                        tips: ['steps.5.tip1', 'steps.5.tip2']
+                        description: 'Choose the balance option for your squad. This allows you to customize the troop composition according to your strategy.',
+                        tips: ['Balance type affects troop distribution', 'Custom ratios give you more control']
                     },
                     {
-                        titleKey: 'steps.6.title',
+                        title: 'Set Troop Ratio (60-20-30)',
                         image: '6 set proper ratio.png',
-                        descriptionKey: 'steps.6.description',
-                        tips: ['steps.6.tip1', 'steps.6.tip2', 'steps.6.tip3'],
-                        squadConfigKey: 'steps.6.squadConfig'
+                        description: 'For Jessie squads, set the ratio to 60% Infantry, 20% Lancer, 30% Marksman. This creates a balanced offensive formation.',
+                        tips: ['Use the sliders to adjust percentages', 'Ensure total adds up to 100%', 'JA6 uses 60-20-20 ratio, JA5 uses 50-20-30'],
+                        squadConfig: 'Attack Squads (Jessie): JA6: 60-20-20, JA5: 50-20-30'
                     },
                     {
-                        titleKey: 'steps.7.title',
+                        title: 'Set Troop Ratio (50-20-30)',
                         image: '6b set proper ratio 50-20-30.png',
-                        descriptionKey: 'steps.7.description',
-                        tips: ['steps.7.tip1', 'steps.7.tip2', 'steps.7.tip3'],
-                        squadConfigKey: 'steps.7.squadConfig'
+                        description: 'For Patrick squads, set the ratio to 50% Infantry, 20% Lancer, 30% Marksman. This provides better defensive capabilities.',
+                        tips: ['Patrick benefits from defensive ratios', 'PD6 uses 60-20-20 for tankier defense', 'PD5 uses 50-20-30 for balanced defense'],
+                        squadConfig: 'Defense Squads (Patrick): PD6: 60-20-20, PD5: 50-20-30'
                     },
                     {
-                        titleKey: 'steps.8.title',
+                        title: 'Save Configuration',
                         image: '7 click save.png',
-                        descriptionKey: 'steps.8.description',
-                        tips: ['steps.8.tip1', 'steps.8.tip2']
+                        description: 'Click the Save button to confirm your squad configuration. Make sure all settings are correct before saving.',
+                        tips: ['Double-check your ratios before saving', 'You can edit squads later if needed']
                     },
                     {
-                        titleKey: 'steps.9.title',
+                        title: 'Choose Squad Slot',
                         image: '8 choose slot.png',
-                        descriptionKey: 'steps.9.description',
-                        tips: ['steps.9.tip1', 'steps.9.tip2', 'steps.9.tip3']
+                        description: 'Select an available slot for your new squad. Organize your squads logically for easy access during battles.',
+                        tips: ['Use slots 1-2 for Attack squads (JA6, JA5)', 'Use slots 3-4 for Defense squads (PD6, PD5)', 'Organize by purpose for quick access']
                     },
                     {
-                        titleKey: 'steps.10.title',
+                        title: 'Name Your Squad',
                         image: '9 name it.png',
-                        descriptionKey: 'steps.10.description',
-                        tips: ['steps.10.tip1', 'steps.10.tip2', 'steps.10.tip3']
+                        description: 'Give your squad a memorable name. Consider using names that indicate the leader and strategy for easy identification.',
+                        tips: ['Name them exactly: JA6, JA5, PD6, PD5', 'These codes indicate leader and purpose', 'J=Jessie, P=Patrick, A=Attack, D=Defense']
                     },
                     {
-                        titleKey: 'steps.11.title',
+                        title: 'Confirm Creation',
                         image: '10 click confirm.png',
-                        descriptionKey: 'steps.11.description',
-                        tips: ['steps.11.tip1', 'steps.11.tip2', 'steps.11.tip3']
+                        description: 'Click Confirm to finalize your squad creation. Repeat this process for all 4 squads following the configurations outlined.',
+                        tips: ['Create all 4 squads in one session', 'Test each squad in battle to verify effectiveness', 'Adjust ratios based on your experience']
                     }
                 ],
-                t(key) {
-                    const keys = key.split('.');
-                    let value = translations[this.currentLang];
-                    
-                    for (const k of keys) {
-                        value = value?.[k];
-                    }
-                    
-                    return value || key;
-                },
                 nextStep() {
                     if (this.currentStep < this.steps.length) {
                         this.currentStep++;
