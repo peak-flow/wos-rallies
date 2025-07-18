@@ -1,4 +1,5 @@
-export const es = {
+window.translations = window.translations || {};
+window.translations.es = {
   language: 'Idioma',
   title: 'Tutorial de Creación de Escuadrones',
   subtitle: 'Formaciones de Ataque y Defensa',
