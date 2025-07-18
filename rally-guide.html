@@ -36,23 +36,40 @@
     </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen">
+    <!-- Language Switcher Top Bar -->
+    <div class="bg-gray-800 border-b border-gray-700 sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-end items-center">
+            <div x-data="languageSwitcher()" class="flex items-center gap-2">
+                <label class="text-sm text-gray-400 mr-2" x-text="t('language')"></label>
+                <button @click="setLanguage('en')" 
+                        :class="currentLang === 'en' ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'"
+                        class="px-3 py-1 rounded-l-lg text-sm font-medium transition-colors">
+                    English
+                </button>
+                <button @click="setLanguage('fr')" 
+                        :class="currentLang === 'fr' ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'"
+                        class="px-3 py-1 rounded-r-lg text-sm font-medium transition-colors">
+                    Français
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div x-data="rallyGuide()" class="container mx-auto px-4 py-8">
         <!-- Header -->
         <header class="text-center mb-12 fade-in">
             <h1 class="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
                 White Out Survival
             </h1>
-            <h2 class="text-3xl mb-2">Rally Hero Selection Guide</h2>
-            <p class="text-gray-400 text-lg">Master the art of first slot hero selection for rallies</p>
+            <h2 class="text-3xl mb-2" x-text="t('title')"></h2>
+            <p class="text-gray-400 text-lg" x-text="t('subtitle')"></p>
             
             <!-- Navigation -->
             <div class="mt-6 flex justify-center gap-4">
                 <a href="index.html" class="px-6 py-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors">
-                    ← Squad Creation Tutorial
+                    ← <span x-text="t('nav.squadCreation')"></span>
                 </a>
-                <span class="px-6 py-2 bg-purple-600 rounded-lg">
-                    Rally Guide
-                </span>
+                <span class="px-6 py-2 bg-purple-600 rounded-lg" x-text="t('nav.rallyGuide')"></span>
             </div>
         </header>
 
@@ -63,12 +80,9 @@
                     <svg class="w-8 h-8 mr-3" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
                     </svg>
-                    Critical: First Slot Hero Sets Rally Bonuses!
+                    <span x-text="t('critical.title')"></span>
                 </h3>
-                <p class="text-center text-lg text-gray-200">
-                    The hero in your FIRST SLOT determines the bonuses for the entire rally.
-                    This is the most important decision for rally participation!
-                </p>
+                <p class="text-center text-lg text-gray-200" x-text="t('critical.message')"></p>
             </div>
         </section>
 
@@ -81,29 +95,28 @@
                         <svg class="w-7 h-7 mr-3" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
                         </svg>
-                        Rally Leader Strategy
+                        <span x-text="t('leader.title')"></span>
                     </h3>
                     
                     <div class="space-y-4">
                         <div class="bg-purple-800/20 rounded-lg p-4">
-                            <h4 class="font-semibold text-purple-300 mb-2">Your Role:</h4>
-                            <p class="text-gray-300">As rally leader, you initiate the attack and coordinate the assault. Your troops form the core of the rally.</p>
+                            <h4 class="font-semibold text-purple-300 mb-2" x-text="t('leader.role')"></h4>
+                            <p class="text-gray-300" x-text="t('leader.roleDesc')"></p>
                         </div>
                         
                         <div class="bg-purple-800/20 rounded-lg p-4">
-                            <h4 class="font-semibold text-purple-300 mb-2">Hero Selection:</h4>
-                            <p class="text-gray-300 mb-2">Choose your STRONGEST hero for first slot, regardless of type:</p>
+                            <h4 class="font-semibold text-purple-300 mb-2" x-text="t('leader.heroSelection')"></h4>
+                            <p class="text-gray-300 mb-2" x-text="t('leader.heroDesc')"></p>
                             <ul class="list-disc list-inside text-sm text-gray-400 ml-4">
-                                <li>Highest level hero</li>
-                                <li>Best gear equipped</li>
-                                <li>Maximum skill upgrades</li>
-                                <li>Hero type doesn't matter - power does!</li>
+                                <template x-for="tip in t('leader.tips')" :key="tip">
+                                    <li x-text="tip"></li>
+                                </template>
                             </ul>
                         </div>
                         
                         <div class="bg-yellow-900/30 border border-yellow-700 rounded-lg p-4">
                             <p class="text-yellow-300 text-sm">
-                                <strong>Pro Tip:</strong> Your strongest hero maximizes the rally capacity and overall damage output.
+                                <strong x-text="t('leader.proTip')"></strong> <span x-text="t('leader.proTipDesc')"></span>
                             </p>
                         </div>
                     </div>
@@ -117,32 +130,32 @@
                         <svg class="w-7 h-7 mr-3" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
                         </svg>
-                        Rally Joiner Strategy
+                        <span x-text="t('joiner.title')"></span>
                     </h3>
                     
                     <div class="space-y-4">
                         <div class="bg-green-800/20 rounded-lg p-4">
-                            <h4 class="font-semibold text-green-300 mb-2">Your Role:</h4>
-                            <p class="text-gray-300">As a rally joiner, you reinforce the leader's attack. Your first slot hero determines your contribution type.</p>
+                            <h4 class="font-semibold text-green-300 mb-2" x-text="t('joiner.role')"></h4>
+                            <p class="text-gray-300" x-text="t('joiner.roleDesc')"></p>
                         </div>
                         
                         <div class="bg-green-800/20 rounded-lg p-4">
-                            <h4 class="font-semibold text-green-300 mb-2">Hero Selection by Rally Type:</h4>
+                            <h4 class="font-semibold text-green-300 mb-2" x-text="t('joiner.heroSelection')"></h4>
                             <div class="space-y-3">
                                 <div class="flex items-start">
-                                    <span class="text-red-400 font-bold mr-2">Attack Rally:</span>
-                                    <span class="text-gray-300">Use Jessie in first slot (JA6 or JA5)</span>
+                                    <span class="text-red-400 font-bold mr-2" x-text="t('joiner.attackRally')"></span>
+                                    <span class="text-gray-300" x-text="t('joiner.attackChoice')"></span>
                                 </div>
                                 <div class="flex items-start">
-                                    <span class="text-blue-400 font-bold mr-2">Defense Rally:</span>
-                                    <span class="text-gray-300">Use Patrick in first slot (PD6 or PD5)</span>
+                                    <span class="text-blue-400 font-bold mr-2" x-text="t('joiner.defenseRally')"></span>
+                                    <span class="text-gray-300" x-text="t('joiner.defenseChoice')"></span>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="bg-yellow-900/30 border border-yellow-700 rounded-lg p-4">
                             <p class="text-yellow-300 text-sm">
-                                <strong>Pro Tip:</strong> Match your hero type to the rally objective for maximum effectiveness!
+                                <strong x-text="t('joiner.proTip')"></strong> <span x-text="t('joiner.proTipDesc')"></span>
                             </p>
                         </div>
                     </div>
@@ -152,51 +165,45 @@
 
         <!-- Visual Guide Section -->
         <section class="mb-12">
-            <h3 class="text-2xl font-bold mb-8 text-center">Visual Guide: First Slot Hero Selection</h3>
+            <h3 class="text-2xl font-bold mb-8 text-center" x-text="t('visual.title')"></h3>
             
             <div class="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                 <!-- First Slot Importance -->
                 <div class="bg-gray-800 rounded-xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform">
                     <div class="bg-gradient-to-r from-purple-600 to-pink-600 p-4">
-                        <h4 class="text-lg font-bold text-center">First Slot = Rally Bonus</h4>
+                        <h4 class="text-lg font-bold text-center" x-text="t('visual.firstSlot')"></h4>
                     </div>
                     <div class="p-4">
                         <img src="first-slot-hero.png" 
-                             alt="First Slot Hero"
+                             :alt="t('visual.firstSlot')"
                              class="w-full rounded-lg mb-4">
-                        <p class="text-sm text-gray-300 text-center">
-                            The hero in slot 1 determines all rally bonuses and buffs
-                        </p>
+                        <p class="text-sm text-gray-300 text-center" x-text="t('visual.firstSlotDesc')"></p>
                     </div>
                 </div>
 
                 <!-- Attack Hero -->
                 <div class="bg-gray-800 rounded-xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform">
                     <div class="hero-jessie p-4">
-                        <h4 class="text-lg font-bold text-center">Attack Rally Hero</h4>
+                        <h4 class="text-lg font-bold text-center" x-text="t('visual.attackHero')"></h4>
                     </div>
                     <div class="p-4">
                         <img src="correct-attack-hero.png" 
-                             alt="Jessie for Attack"
+                             :alt="t('visual.attackHero')"
                              class="w-full rounded-lg mb-4 glow-red">
-                        <p class="text-sm text-gray-300 text-center">
-                            Jessie in first slot for offensive rallies
-                        </p>
+                        <p class="text-sm text-gray-300 text-center" x-text="t('visual.attackHeroDesc')"></p>
                     </div>
                 </div>
 
                 <!-- Defense Hero -->
                 <div class="bg-gray-800 rounded-xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform">
                     <div class="hero-patrick p-4">
-                        <h4 class="text-lg font-bold text-center">Defense Rally Hero</h4>
+                        <h4 class="text-lg font-bold text-center" x-text="t('visual.defenseHero')"></h4>
                     </div>
                     <div class="p-4">
                         <img src="correct-defense-hero.png" 
-                             alt="Patrick for Defense"
+                             :alt="t('visual.defenseHero')"
                              class="w-full rounded-lg mb-4 glow-blue">
-                        <p class="text-sm text-gray-300 text-center">
-                            Patrick in first slot for defensive rallies
-                        </p>
+                        <p class="text-sm text-gray-300 text-center" x-text="t('visual.defenseHeroDesc')"></p>
                     </div>
                 </div>
             </div>
@@ -204,43 +211,31 @@
 
         <!-- Quick Decision Matrix -->
         <section class="mb-12 max-w-4xl mx-auto">
-            <h3 class="text-2xl font-bold mb-6 text-center">Quick Decision Matrix</h3>
+            <h3 class="text-2xl font-bold mb-6 text-center" x-text="t('matrix.title')"></h3>
             
-            <div class="bg-gray-800 rounded-xl p-8 shadow-2xl">
+            <div class="bg-gray-800 rounded-xl p-8 shadow-2xl overflow-x-auto">
                 <table class="w-full">
                     <thead>
                         <tr class="border-b-2 border-gray-700">
-                            <th class="text-left py-3 px-4">Scenario</th>
-                            <th class="text-center py-3 px-4">Your Role</th>
-                            <th class="text-center py-3 px-4">First Slot Hero</th>
-                            <th class="text-center py-3 px-4">Squad to Use</th>
+                            <th class="text-left py-3 px-4" x-text="t('matrix.scenario')"></th>
+                            <th class="text-center py-3 px-4" x-text="t('matrix.role')"></th>
+                            <th class="text-center py-3 px-4" x-text="t('matrix.firstSlot')"></th>
+                            <th class="text-center py-3 px-4" x-text="t('matrix.squad')"></th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-700">
-                        <tr class="hover:bg-gray-700/50 transition-colors">
-                            <td class="py-4 px-4">Attacking Enemy Base</td>
-                            <td class="text-center text-purple-400">Rally Leader</td>
-                            <td class="text-center text-yellow-400">Strongest Hero</td>
-                            <td class="text-center">Any (Power > Type)</td>
-                        </tr>
-                        <tr class="hover:bg-gray-700/50 transition-colors">
-                            <td class="py-4 px-4">Attacking Enemy Base</td>
-                            <td class="text-center text-green-400">Rally Joiner</td>
-                            <td class="text-center text-red-400">Jessie</td>
-                            <td class="text-center">JA6 or JA5</td>
-                        </tr>
-                        <tr class="hover:bg-gray-700/50 transition-colors">
-                            <td class="py-4 px-4">Defending Alliance Member</td>
-                            <td class="text-center text-purple-400">Rally Leader</td>
-                            <td class="text-center text-yellow-400">Strongest Hero</td>
-                            <td class="text-center">Any (Power > Type)</td>
-                        </tr>
-                        <tr class="hover:bg-gray-700/50 transition-colors">
-                            <td class="py-4 px-4">Defending Alliance Member</td>
-                            <td class="text-center text-green-400">Rally Joiner</td>
-                            <td class="text-center text-blue-400">Patrick</td>
-                            <td class="text-center">PD6 or PD5</td>
-                        </tr>
+                        <template x-for="row in matrixData" :key="row.id">
+                            <tr class="hover:bg-gray-700/50 transition-colors">
+                                <td class="py-4 px-4" x-text="t(row.scenario)"></td>
+                                <td class="text-center py-4 px-4">
+                                    <span :class="row.roleClass" x-text="t(row.role)"></span>
+                                </td>
+                                <td class="text-center py-4 px-4">
+                                    <span :class="row.heroClass" x-text="t(row.hero)"></span>
+                                </td>
+                                <td class="text-center py-4 px-4" x-text="t(row.squad)"></td>
+                            </tr>
+                        </template>
                     </tbody>
                 </table>
             </div>
@@ -248,102 +243,57 @@
 
         <!-- Common Mistakes -->
         <section class="mb-12 max-w-4xl mx-auto">
-            <h3 class="text-2xl font-bold mb-6 text-center">Common Mistakes to Avoid</h3>
+            <h3 class="text-2xl font-bold mb-6 text-center" x-text="t('mistakes.title')"></h3>
             
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-red-900/20 border border-red-700 rounded-xl p-6">
-                    <h4 class="text-lg font-semibold mb-3 text-red-400 flex items-center">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
-                        </svg>
-                        Mistake #1
-                    </h4>
-                    <p class="text-gray-300 mb-2">Using wrong hero type as rally joiner</p>
-                    <p class="text-sm text-gray-400">This reduces your effectiveness and wastes troops</p>
-                </div>
-                
-                <div class="bg-red-900/20 border border-red-700 rounded-xl p-6">
-                    <h4 class="text-lg font-semibold mb-3 text-red-400 flex items-center">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
-                        </svg>
-                        Mistake #2
-                    </h4>
-                    <p class="text-gray-300 mb-2">Not checking first slot before joining rally</p>
-                    <p class="text-sm text-gray-400">Always verify your squad's first hero matches the rally type</p>
-                </div>
-                
-                <div class="bg-red-900/20 border border-red-700 rounded-xl p-6">
-                    <h4 class="text-lg font-semibold mb-3 text-red-400 flex items-center">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
-                        </svg>
-                        Mistake #3
-                    </h4>
-                    <p class="text-gray-300 mb-2">Rally leader not using strongest hero</p>
-                    <p class="text-sm text-gray-400">This limits rally capacity and reduces overall damage</p>
-                </div>
-                
-                <div class="bg-red-900/20 border border-red-700 rounded-xl p-6">
-                    <h4 class="text-lg font-semibold mb-3 text-red-400 flex items-center">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
-                        </svg>
-                        Mistake #4
-                    </h4>
-                    <p class="text-gray-300 mb-2">Using same squad for all rally types</p>
-                    <p class="text-sm text-gray-400">Have dedicated attack and defense squads ready</p>
-                </div>
+                <template x-for="(mistake, index) in mistakes" :key="index">
+                    <div class="bg-red-900/20 border border-red-700 rounded-xl p-6">
+                        <h4 class="text-lg font-semibold mb-3 text-red-400 flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                            </svg>
+                            <span x-text="t('mistakes.mistake') + ' #' + (index + 1)"></span>
+                        </h4>
+                        <p class="text-gray-300 mb-2" x-text="t(mistake.title)"></p>
+                        <p class="text-sm text-gray-400" x-text="t(mistake.desc)"></p>
+                    </div>
+                </template>
             </div>
         </section>
 
         <!-- Summary -->
         <section class="mb-12 max-w-4xl mx-auto">
             <div class="bg-gradient-to-r from-purple-900/40 to-blue-900/40 border-2 border-purple-600 rounded-xl p-8">
-                <h3 class="text-2xl font-bold mb-6 text-center text-purple-400">Remember These Key Points</h3>
+                <h3 class="text-2xl font-bold mb-6 text-center text-purple-400" x-text="t('summary.title')"></h3>
                 
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="space-y-3">
-                        <h4 class="font-semibold text-lg text-purple-300">Rally Leaders:</h4>
+                        <h4 class="font-semibold text-lg text-purple-300" x-text="t('summary.leadersTitle')"></h4>
                         <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="text-purple-400 mr-2">•</span>
-                                Always use your STRONGEST hero
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-purple-400 mr-2">•</span>
-                                Hero type doesn't matter - power does
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-purple-400 mr-2">•</span>
-                                Higher power = larger rally capacity
-                            </li>
+                            <template x-for="point in t('summary.leadersPoints')" :key="point">
+                                <li class="flex items-start">
+                                    <span class="text-purple-400 mr-2">•</span>
+                                    <span x-text="point"></span>
+                                </li>
+                            </template>
                         </ul>
                     </div>
                     
                     <div class="space-y-3">
-                        <h4 class="font-semibold text-lg text-purple-300">Rally Joiners:</h4>
+                        <h4 class="font-semibold text-lg text-purple-300" x-text="t('summary.joinersTitle')"></h4>
                         <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="text-purple-400 mr-2">•</span>
-                                Attack rally = Jessie first slot
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-purple-400 mr-2">•</span>
-                                Defense rally = Patrick first slot
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-purple-400 mr-2">•</span>
-                                Match hero to rally objective
-                            </li>
+                            <template x-for="point in t('summary.joinersPoints')" :key="point">
+                                <li class="flex items-start">
+                                    <span class="text-purple-400 mr-2">•</span>
+                                    <span x-text="point"></span>
+                                </li>
+                            </template>
                         </ul>
                     </div>
                 </div>
                 
                 <div class="mt-6 pt-6 border-t border-purple-700 text-center">
-                    <p class="text-lg text-purple-200">
-                        First slot hero selection can make or break your rally success!
-                    </p>
+                    <p class="text-lg text-purple-200" x-text="t('summary.conclusion')"></p>
                 </div>
             </div>
         </section>
@@ -355,15 +305,308 @@
                 <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
-                Back to Squad Creation Tutorial
+                <span x-text="t('nav.backToSquads')"></span>
             </a>
         </footer>
     </div>
 
     <script>
-        function rallyGuide() {
+        // Translation system
+        const translations = {
+            en: {
+                language: 'Language',
+                title: 'Rally Hero Selection Guide',
+                subtitle: 'Master the art of first slot hero selection for rallies',
+                nav: {
+                    squadCreation: 'Squad Creation Tutorial',
+                    rallyGuide: 'Rally Guide',
+                    backToSquads: 'Back to Squad Creation Tutorial'
+                },
+                critical: {
+                    title: 'Critical: First Slot Hero Sets Rally Bonuses!',
+                    message: 'The hero in your FIRST SLOT determines the bonuses for the entire rally. This is the most important decision for rally participation!'
+                },
+                leader: {
+                    title: 'Rally Leader Strategy',
+                    role: 'Your Role:',
+                    roleDesc: 'As rally leader, you initiate the attack and coordinate the assault. Your troops form the core of the rally.',
+                    heroSelection: 'Hero Selection:',
+                    heroDesc: 'Choose your STRONGEST hero for first slot, regardless of type:',
+                    tips: [
+                        'Highest level hero',
+                        'Best gear equipped',
+                        'Maximum skill upgrades',
+                        'Hero type doesn\'t matter - power does!'
+                    ],
+                    proTip: 'Pro Tip:',
+                    proTipDesc: 'Your strongest hero maximizes the rally capacity and overall damage output.'
+                },
+                joiner: {
+                    title: 'Rally Joiner Strategy',
+                    role: 'Your Role:',
+                    roleDesc: 'As a rally joiner, you reinforce the leader\'s attack. Your first slot hero determines your contribution type.',
+                    heroSelection: 'Hero Selection by Rally Type:',
+                    attackRally: 'Attack Rally:',
+                    attackChoice: 'Use Jessie in first slot (JA6 or JA5)',
+                    defenseRally: 'Defense Rally:',
+                    defenseChoice: 'Use Patrick in first slot (PD6 or PD5)',
+                    proTip: 'Pro Tip:',
+                    proTipDesc: 'Match your hero type to the rally objective for maximum effectiveness!'
+                },
+                visual: {
+                    title: 'Visual Guide: First Slot Hero Selection',
+                    firstSlot: 'First Slot = Rally Bonus',
+                    firstSlotDesc: 'The hero in slot 1 determines all rally bonuses and buffs',
+                    attackHero: 'Attack Rally Hero',
+                    attackHeroDesc: 'Jessie in first slot for offensive rallies',
+                    defenseHero: 'Defense Rally Hero',
+                    defenseHeroDesc: 'Patrick in first slot for defensive rallies'
+                },
+                matrix: {
+                    title: 'Quick Decision Matrix',
+                    scenario: 'Scenario',
+                    role: 'Your Role',
+                    firstSlot: 'First Slot Hero',
+                    squad: 'Squad to Use',
+                    attackingBase: 'Attacking Enemy Base',
+                    defendingAlly: 'Defending Alliance Member',
+                    rallyLeader: 'Rally Leader',
+                    rallyJoiner: 'Rally Joiner',
+                    strongestHero: 'Strongest Hero',
+                    jessie: 'Jessie',
+                    patrick: 'Patrick',
+                    anySquad: 'Any (Power > Type)',
+                    ja6ja5: 'JA6 or JA5',
+                    pd6pd5: 'PD6 or PD5'
+                },
+                mistakes: {
+                    title: 'Common Mistakes to Avoid',
+                    mistake: 'Mistake',
+                    mistake1: {
+                        title: 'Using wrong hero type as rally joiner',
+                        desc: 'This reduces your effectiveness and wastes troops'
+                    },
+                    mistake2: {
+                        title: 'Not checking first slot before joining rally',
+                        desc: 'Always verify your squad\'s first hero matches the rally type'
+                    },
+                    mistake3: {
+                        title: 'Rally leader not using strongest hero',
+                        desc: 'This limits rally capacity and reduces overall damage'
+                    },
+                    mistake4: {
+                        title: 'Using same squad for all rally types',
+                        desc: 'Have dedicated attack and defense squads ready'
+                    }
+                },
+                summary: {
+                    title: 'Remember These Key Points',
+                    leadersTitle: 'Rally Leaders:',
+                    leadersPoints: [
+                        'Always use your STRONGEST hero',
+                        'Hero type doesn\'t matter - power does',
+                        'Higher power = larger rally capacity'
+                    ],
+                    joinersTitle: 'Rally Joiners:',
+                    joinersPoints: [
+                        'Attack rally = Jessie first slot',
+                        'Defense rally = Patrick first slot',
+                        'Match hero to rally objective'
+                    ],
+                    conclusion: 'First slot hero selection can make or break your rally success!'
+                }
+            },
+            fr: {
+                language: 'Langue',
+                title: 'Guide de Sélection des Héros de Ralliement',
+                subtitle: 'Maîtrisez l\'art de la sélection du héros en première position pour les ralliements',
+                nav: {
+                    squadCreation: 'Tutoriel de Création d\'Escouades',
+                    rallyGuide: 'Guide de Ralliement',
+                    backToSquads: 'Retour au Tutoriel de Création d\'Escouades'
+                },
+                critical: {
+                    title: 'Critique: Le Héros en Première Position Détermine les Bonus de Ralliement!',
+                    message: 'Le héros dans votre PREMIÈRE POSITION détermine les bonus pour tout le ralliement. C\'est la décision la plus importante pour la participation au ralliement!'
+                },
+                leader: {
+                    title: 'Stratégie du Chef de Ralliement',
+                    role: 'Votre Rôle:',
+                    roleDesc: 'En tant que chef de ralliement, vous initiez l\'attaque et coordonnez l\'assaut. Vos troupes forment le cœur du ralliement.',
+                    heroSelection: 'Sélection du Héros:',
+                    heroDesc: 'Choisissez votre héros le PLUS FORT pour la première position, peu importe le type:',
+                    tips: [
+                        'Héros de plus haut niveau',
+                        'Meilleur équipement équipé',
+                        'Compétences améliorées au maximum',
+                        'Le type de héros n\'importe pas - la puissance compte!'
+                    ],
+                    proTip: 'Conseil Pro:',
+                    proTipDesc: 'Votre héros le plus fort maximise la capacité du ralliement et les dégâts globaux.'
+                },
+                joiner: {
+                    title: 'Stratégie du Participant au Ralliement',
+                    role: 'Votre Rôle:',
+                    roleDesc: 'En tant que participant au ralliement, vous renforcez l\'attaque du chef. Votre héros en première position détermine votre type de contribution.',
+                    heroSelection: 'Sélection du Héros par Type de Ralliement:',
+                    attackRally: 'Ralliement d\'Attaque:',
+                    attackChoice: 'Utilisez Jessie en première position (JA6 ou JA5)',
+                    defenseRally: 'Ralliement de Défense:',
+                    defenseChoice: 'Utilisez Patrick en première position (PD6 ou PD5)',
+                    proTip: 'Conseil Pro:',
+                    proTipDesc: 'Adaptez votre type de héros à l\'objectif du ralliement pour une efficacité maximale!'
+                },
+                visual: {
+                    title: 'Guide Visuel: Sélection du Héros en Première Position',
+                    firstSlot: 'Première Position = Bonus de Ralliement',
+                    firstSlotDesc: 'Le héros en position 1 détermine tous les bonus et buffs du ralliement',
+                    attackHero: 'Héros de Ralliement d\'Attaque',
+                    attackHeroDesc: 'Jessie en première position pour les ralliements offensifs',
+                    defenseHero: 'Héros de Ralliement de Défense',
+                    defenseHeroDesc: 'Patrick en première position pour les ralliements défensifs'
+                },
+                matrix: {
+                    title: 'Matrice de Décision Rapide',
+                    scenario: 'Scénario',
+                    role: 'Votre Rôle',
+                    firstSlot: 'Héros en Première Position',
+                    squad: 'Escouade à Utiliser',
+                    attackingBase: 'Attaquer une Base Ennemie',
+                    defendingAlly: 'Défendre un Membre de l\'Alliance',
+                    rallyLeader: 'Chef de Ralliement',
+                    rallyJoiner: 'Participant au Ralliement',
+                    strongestHero: 'Héros le Plus Fort',
+                    jessie: 'Jessie',
+                    patrick: 'Patrick',
+                    anySquad: 'N\'importe (Puissance > Type)',
+                    ja6ja5: 'JA6 ou JA5',
+                    pd6pd5: 'PD6 ou PD5'
+                },
+                mistakes: {
+                    title: 'Erreurs Courantes à Éviter',
+                    mistake: 'Erreur',
+                    mistake1: {
+                        title: 'Utiliser le mauvais type de héros comme participant au ralliement',
+                        desc: 'Cela réduit votre efficacité et gaspille des troupes'
+                    },
+                    mistake2: {
+                        title: 'Ne pas vérifier la première position avant de rejoindre le ralliement',
+                        desc: 'Vérifiez toujours que le premier héros de votre escouade correspond au type de ralliement'
+                    },
+                    mistake3: {
+                        title: 'Le chef de ralliement n\'utilise pas son héros le plus fort',
+                        desc: 'Cela limite la capacité du ralliement et réduit les dégâts globaux'
+                    },
+                    mistake4: {
+                        title: 'Utiliser la même escouade pour tous les types de ralliement',
+                        desc: 'Ayez des escouades dédiées d\'attaque et de défense prêtes'
+                    }
+                },
+                summary: {
+                    title: 'Souvenez-vous de ces Points Clés',
+                    leadersTitle: 'Chefs de Ralliement:',
+                    leadersPoints: [
+                        'Utilisez toujours votre héros le PLUS FORT',
+                        'Le type de héros n\'importe pas - la puissance compte',
+                        'Plus de puissance = plus grande capacité de ralliement'
+                    ],
+                    joinersTitle: 'Participants au Ralliement:',
+                    joinersPoints: [
+                        'Ralliement d\'attaque = Jessie en première position',
+                        'Ralliement de défense = Patrick en première position',
+                        'Adaptez le héros à l\'objectif du ralliement'
+                    ],
+                    conclusion: 'La sélection du héros en première position peut faire ou défaire votre succès au ralliement!'
+                }
+            }
+        };
+
+        // Language switcher component
+        function languageSwitcher() {
             return {
-                // Alpine.js data if needed for future interactivity
+                currentLang: localStorage.getItem('language') || 'en',
+                setLanguage(lang) {
+                    localStorage.setItem('language', lang);
+                    this.currentLang = lang;
+                    window.location.reload();
+                },
+                t(key) {
+                    const lang = this.currentLang;
+                    const keys = key.split('.');
+                    let value = translations[lang];
+                    
+                    for (const k of keys) {
+                        value = value?.[k];
+                    }
+                    
+                    return value || key;
+                }
+            };
+        }
+
+        function rallyGuide() {
+            const currentLang = localStorage.getItem('language') || 'en';
+            
+            return {
+                currentLang: currentLang,
+                matrixData: [
+                    {
+                        id: 1,
+                        scenario: 'matrix.attackingBase',
+                        role: 'matrix.rallyLeader',
+                        roleClass: 'text-purple-400',
+                        hero: 'matrix.strongestHero',
+                        heroClass: 'text-yellow-400',
+                        squad: 'matrix.anySquad'
+                    },
+                    {
+                        id: 2,
+                        scenario: 'matrix.attackingBase',
+                        role: 'matrix.rallyJoiner',
+                        roleClass: 'text-green-400',
+                        hero: 'matrix.jessie',
+                        heroClass: 'text-red-400',
+                        squad: 'matrix.ja6ja5'
+                    },
+                    {
+                        id: 3,
+                        scenario: 'matrix.defendingAlly',
+                        role: 'matrix.rallyLeader',
+                        roleClass: 'text-purple-400',
+                        hero: 'matrix.strongestHero',
+                        heroClass: 'text-yellow-400',
+                        squad: 'matrix.anySquad'
+                    },
+                    {
+                        id: 4,
+                        scenario: 'matrix.defendingAlly',
+                        role: 'matrix.rallyJoiner',
+                        roleClass: 'text-green-400',
+                        hero: 'matrix.patrick',
+                        heroClass: 'text-blue-400',
+                        squad: 'matrix.pd6pd5'
+                    }
+                ],
+                mistakes: [
+                    { title: 'mistakes.mistake1.title', desc: 'mistakes.mistake1.desc' },
+                    { title: 'mistakes.mistake2.title', desc: 'mistakes.mistake2.desc' },
+                    { title: 'mistakes.mistake3.title', desc: 'mistakes.mistake3.desc' },
+                    { title: 'mistakes.mistake4.title', desc: 'mistakes.mistake4.desc' }
+                ],
+                t(key) {
+                    const keys = key.split('.');
+                    let value = translations[this.currentLang];
+                    
+                    for (const k of keys) {
+                        value = value?.[k];
+                    }
+                    
+                    if (Array.isArray(value)) {
+                        return value;
+                    }
+                    
+                    return value || key;
+                }
             }
         }
     </script>
