@@ -156,68 +156,81 @@ window.translations.en = {
         ],
         conclusion: 'First slot hero selection can make or break your rally success!'
     },
-    // Step translations
-    'steps.1.title': 'Click Profile',
-    'steps.1.description': 'Start by clicking on your profile icon in the game interface. This will open your player menu where you can access various game features.',
-    'steps.1.tip1': 'Make sure you\'re in the main game screen',
-    'steps.1.tip2': 'The profile icon is usually located in the top-left corner',
-    
-    'steps.2.title': 'Click Troops',
-    'steps.2.description': 'Navigate to the Troops section from your profile menu. This is where you manage all your military units and squad configurations.',
-    'steps.2.tip1': 'The Troops option shows your current military strength',
-    'steps.2.tip2': 'You can view all available units here',
-    
-    'steps.3.title': 'Click Squads',
-    'steps.3.description': 'Select the Squads option to access squad management. Here you can create, modify, and organize your battle formations.',
-    'steps.3.tip1': 'You can have multiple squads for different strategies',
-    'steps.3.tip2': 'Each squad can have a unique configuration',
-    
-    'steps.4.title': 'Select Hero Leader',
-    'steps.4.description': 'Choose either Jessie or Patrick as your squad leader. For this tutorial, create 2 squads with Jessie and 2 with Patrick.',
-    'steps.4.tip1': 'Jessie is great for offensive strategies',
-    'steps.4.tip2': 'Patrick excels in defensive formations',
-    'steps.4.tip3': 'Leader choice affects squad bonuses',
-    'steps.4.squadConfig': 'First 2 squads: Jessie | Last 2 squads: Patrick',
-    
-    'steps.5.title': 'Select Balance Type',
-    'steps.5.description': 'Choose the balance option for your squad. This allows you to customize the troop composition according to your strategy.',
-    'steps.5.tip1': 'Balance type affects troop distribution',
-    'steps.5.tip2': 'Custom ratios give you more control',
-    
-    'steps.6.title': 'Set Troop Ratio (60-20-30)',
-    'steps.6.description': 'For Jessie squads, set the ratio to 60% Infantry, 20% Lancer, 30% Marksman. This creates a balanced offensive formation.',
-    'steps.6.tip1': 'Use the sliders to adjust percentages',
-    'steps.6.tip2': 'Ensure total adds up to 100%',
-    'steps.6.tip3': 'JA6 uses 60-20-20 ratio, JA5 uses 50-20-30',
-    'steps.6.squadConfig': 'Attack Squads (Jessie): JA6: 60-20-20, JA5: 50-20-30',
-    
-    'steps.7.title': 'Set Troop Ratio (50-20-30)',
-    'steps.7.description': 'For Patrick squads, set the ratio to 50% Infantry, 20% Lancer, 30% Marksman. This provides better defensive capabilities.',
-    'steps.7.tip1': 'Patrick benefits from defensive ratios',
-    'steps.7.tip2': 'PD6 uses 60-20-20 for tankier defense',
-    'steps.7.tip3': 'PD5 uses 50-20-30 for balanced defense',
-    'steps.7.squadConfig': 'Defense Squads (Patrick): PD6: 60-20-20, PD5: 50-20-30',
-    
-    'steps.8.title': 'Save Configuration',
-    'steps.8.description': 'Click the Save button to confirm your squad configuration. Make sure all settings are correct before saving.',
-    'steps.8.tip1': 'Double-check your ratios before saving',
-    'steps.8.tip2': 'You can edit squads later if needed',
-    
-    'steps.9.title': 'Choose Squad Slot',
-    'steps.9.description': 'Select an available slot for your new squad. Organize your squads logically for easy access during battles.',
-    'steps.9.tip1': 'Use slots 1-2 for Attack squads (JA6, JA5)',
-    'steps.9.tip2': 'Use slots 3-4 for Defense squads (PD6, PD5)',
-    'steps.9.tip3': 'Organize by purpose for quick access',
-    
-    'steps.10.title': 'Name Your Squad',
-    'steps.10.description': 'Give your squad a memorable name. Consider using names that indicate the leader and strategy for easy identification.',
-    'steps.10.tip1': 'Name them exactly: JA6, JA5, PD6, PD5',
-    'steps.10.tip2': 'These codes indicate leader and purpose',
-    'steps.10.tip3': 'J=Jessie, P=Patrick, A=Attack, D=Defense',
-    
-    'steps.11.title': 'Confirm Creation',
-    'steps.11.description': 'Click Confirm to finalize your squad creation. Repeat this process for all 4 squads following the configurations outlined.',
-    'steps.11.tip1': 'Create all 4 squads in one session',
-    'steps.11.tip2': 'Test each squad in battle to verify effectiveness',
-    'steps.11.tip3': 'Adjust ratios based on your experience'
+    steps: {
+        1: {
+            title: 'Click Profile',
+            description: 'Start by clicking on your profile icon in the game interface. This will open your player menu where you can access various game features.',
+            tip1: 'Make sure you\'re in the main game screen',
+            tip2: 'The profile icon is usually located in the top-left corner'
+        },
+        2: {
+            title: 'Click Troops',
+            description: 'Navigate to the Troops section from your profile menu. This is where you manage all your military units and squad configurations.',
+            tip1: 'The Troops option shows your current military strength',
+            tip2: 'You can view all available units here'
+        },
+        3: {
+            title: 'Click Squads',
+            description: 'Select the Squads option to access squad management. Here you can create, modify, and organize your battle formations.',
+            tip1: 'You can have multiple squads for different strategies',
+            tip2: 'Each squad can have a unique configuration'
+        },
+        4: {
+            title: 'Select Hero Leader',
+            description: 'Choose either Jessie or Patrick as your squad leader. For this tutorial, create 2 squads with Jessie and 2 with Patrick.',
+            tip1: 'Jessie is great for offensive strategies',
+            tip2: 'Patrick excels in defensive formations',
+            tip3: 'Leader choice affects squad bonuses',
+            squadConfig: 'First 2 squads: Jessie | Last 2 squads: Patrick'
+        },
+        5: {
+            title: 'Select Balance Type',
+            description: 'Choose the balance option for your squad. This allows you to customize the troop composition according to your strategy.',
+            tip1: 'Balance type affects troop distribution',
+            tip2: 'Custom ratios give you more control'
+        },
+        6: {
+            title: 'Set Troop Ratio (60-20-30)',
+            description: 'For Jessie squads, set the ratio to 60% Infantry, 20% Lancer, 30% Marksman. This creates a balanced offensive formation.',
+            tip1: 'Use the sliders to adjust percentages',
+            tip2: 'Ensure total adds up to 100%',
+            tip3: 'JA6 uses 60-20-20 ratio, JA5 uses 50-20-30',
+            squadConfig: 'Attack Squads (Jessie): JA6: 60-20-20, JA5: 50-20-30'
+        },
+        7: {
+            title: 'Set Troop Ratio (50-20-30)',
+            description: 'For Patrick squads, set the ratio to 50% Infantry, 20% Lancer, 30% Marksman. This provides better defensive capabilities.',
+            tip1: 'Patrick benefits from defensive ratios',
+            tip2: 'PD6 uses 60-20-20 for tankier defense',
+            tip3: 'PD5 uses 50-20-30 for balanced defense',
+            squadConfig: 'Defense Squads (Patrick): PD6: 60-20-20, PD5: 50-20-30'
+        },
+        8: {
+            title: 'Save Configuration',
+            description: 'Click the Save button to confirm your squad configuration. Make sure all settings are correct before saving.',
+            tip1: 'Double-check your ratios before saving',
+            tip2: 'You can edit squads later if needed'
+        },
+        9: {
+            title: 'Choose Squad Slot',
+            description: 'Select an available slot for your new squad. Organize your squads logically for easy access during battles.',
+            tip1: 'Use slots 1-2 for Attack squads (JA6, JA5)',
+            tip2: 'Use slots 3-4 for Defense squads (PD6, PD5)',
+            tip3: 'Organize by purpose for quick access'
+        },
+        10: {
+            title: 'Name Your Squad',
+            description: 'Give your squad a memorable name. Consider using names that indicate the leader and strategy for easy identification.',
+            tip1: 'Name them exactly: JA6, JA5, PD6, PD5',
+            tip2: 'These codes indicate leader and purpose',
+            tip3: 'J=Jessie, P=Patrick, A=Attack, D=Defense'
+        },
+        11: {
+            title: 'Confirm Creation',
+            description: 'Click Confirm to finalize your squad creation. Repeat this process for all 4 squads following the configurations outlined.',
+            tip1: 'Create all 4 squads in one session',
+            tip2: 'Test each squad in battle to verify effectiveness',
+            tip3: 'Adjust ratios based on your experience'
+        }
+    }
 };

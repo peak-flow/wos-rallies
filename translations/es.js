@@ -155,67 +155,81 @@ window.translations.es = {
     ],
     conclusion: '¡El primer héroe puede determinar el éxito del rally!'
   },
-  "steps.1.title": "Haz clic en Perfil",
-  "steps.1.description": "Comienza haciendo clic en tu icono de perfil. Esto abre tu menú de jugador con funciones del juego.",
-  "steps.1.tip1": "Asegúrate de estar en la pantalla principal",
-  "steps.1.tip2": "El icono de perfil está arriba a la izquierda",
-
-  "steps.2.title": "Haz clic en Tropas",
-  "steps.2.description": "Desde tu perfil, accede a Tropas. Aquí gestionas unidades y escuadrones.",
-  "steps.2.tip1": "Tropas muestra tu fuerza actual",
-  "steps.2.tip2": "Puedes ver todas las unidades disponibles",
-
-  "steps.3.title": "Haz clic en Escuadrones",
-  "steps.3.description": "Accede a la gestión de escuadrones para crearlos y modificarlos.",
-  "steps.3.tip1": "Puedes tener múltiples escuadrones",
-  "steps.3.tip2": "Cada uno puede tener una configuración única",
-
-  "steps.4.title": "Selecciona Líder Héroe",
-  "steps.4.description": "Elige a Jessie o Patrick como líder. Usa 2 con Jessie y 2 con Patrick.",
-  "steps.4.tip1": "Jessie es ofensiva",
-  "steps.4.tip2": "Patrick es defensivo",
-  "steps.4.tip3": "El líder afecta los bonos del escuadrón",
-  "steps.4.squadConfig": "Primeros 2: Jessie | Últimos 2: Patrick",
-
-  "steps.5.title": "Selecciona Tipo de Balance",
-  "steps.5.description": "Usa la opción balance para ajustar la composición de tropas.",
-  "steps.5.tip1": "El tipo balance ajusta distribución",
-  "steps.5.tip2": "Los ratios personalizados dan más control",
-
-  "steps.6.title": "Configura Ratio (60-20-30)",
-  "steps.6.description": "Para Jessie usa 60% Infantería, 20% Lancero, 30% Tirador.",
-  "steps.6.tip1": "Usa los deslizadores para ajustar",
-  "steps.6.tip2": "El total debe ser 100%",
-  "steps.6.tip3": "JA6: 60-20-20, JA5: 50-20-30",
-  "steps.6.squadConfig": "Escuadrones Jessie: JA6: 60-20-20, JA5: 50-20-30",
-
-  "steps.7.title": "Configura Ratio (50-20-30)",
-  "steps.7.description": "Para Patrick usa 50% Infantería, 20% Lancero, 30% Tirador.",
-  "steps.7.tip1": "Patrick usa configuraciones defensivas",
-  "steps.7.tip2": "PD6: 60-20-20, más tanque",
-  "steps.7.tip3": "PD5: 50-20-30, más equilibrado",
-  "steps.7.squadConfig": "Escuadrones Patrick: PD6: 60-20-20, PD5: 50-20-30",
-
-  "steps.8.title": "Guardar Configuración",
-  "steps.8.description": "Haz clic en Guardar para confirmar la configuración del escuadrón.",
-  "steps.8.tip1": "Verifica los ratios antes de guardar",
-  "steps.8.tip2": "Puedes editar más tarde si es necesario",
-
-  "steps.9.title": "Elige Casilla para Escuadrón",
-  "steps.9.description": "Selecciona un espacio libre para el nuevo escuadrón.",
-  "steps.9.tip1": "Casillas 1-2 para ataque (JA6, JA5)",
-  "steps.9.tip2": "Casillas 3-4 para defensa (PD6, PD5)",
-  "steps.9.tip3": "Organiza por propósito para acceso rápido",
-
-  "steps.10.title": "Nombra Tu Escuadrón",
-  "steps.10.description": "Asigna un nombre representativo como JA6 o PD5.",
-  "steps.10.tip1": "Nómbralos: JA6, JA5, PD6, PD5",
-  "steps.10.tip2": "Indica líder y propósito",
-  "steps.10.tip3": "J=Jessie, P=Patrick, A=Ataque, D=Defensa",
-
-  "steps.11.title": "Confirma la Creación",
-  "steps.11.description": "Haz clic en Confirmar y repite para los 4 escuadrones.",
-  "steps.11.tip1": "Crea los 4 en una sesión",
-  "steps.11.tip2": "Prueba cada uno en batalla",
-  "steps.11.tip3": "Ajusta según tu experiencia"
+  steps: {
+    1: {
+      title: "Haz clic en Perfil",
+      description: "Comienza haciendo clic en tu icono de perfil. Esto abre tu menú de jugador con funciones del juego.",
+      tip1: "Asegúrate de estar en la pantalla principal",
+      tip2: "El icono de perfil está arriba a la izquierda"
+    },
+    2: {
+      title: "Haz clic en Tropas",
+      description: "Desde tu perfil, accede a Tropas. Aquí gestionas unidades y escuadrones.",
+      tip1: "Tropas muestra tu fuerza actual",
+      tip2: "Puedes ver todas las unidades disponibles"
+    },
+    3: {
+      title: "Haz clic en Escuadrones",
+      description: "Accede a la gestión de escuadrones para crearlos y modificarlos.",
+      tip1: "Puedes tener múltiples escuadrones",
+      tip2: "Cada uno puede tener una configuración única"
+    },
+    4: {
+      title: "Selecciona Líder Héroe",
+      description: "Elige a Jessie o Patrick como líder. Usa 2 con Jessie y 2 con Patrick.",
+      tip1: "Jessie es ofensiva",
+      tip2: "Patrick es defensivo",
+      tip3: "El líder afecta los bonos del escuadrón",
+      squadConfig: "Primeros 2: Jessie | Últimos 2: Patrick"
+    },
+    5: {
+      title: "Selecciona Tipo de Balance",
+      description: "Usa la opción balance para ajustar la composición de tropas.",
+      tip1: "El tipo balance ajusta distribución",
+      tip2: "Los ratios personalizados dan más control"
+    },
+    6: {
+      title: "Configura Ratio (60-20-30)",
+      description: "Para Jessie usa 60% Infantería, 20% Lancero, 30% Tirador.",
+      tip1: "Usa los deslizadores para ajustar",
+      tip2: "El total debe ser 100%",
+      tip3: "JA6: 60-20-20, JA5: 50-20-30",
+      squadConfig: "Escuadrones Jessie: JA6: 60-20-20, JA5: 50-20-30"
+    },
+    7: {
+      title: "Configura Ratio (50-20-30)",
+      description: "Para Patrick usa 50% Infantería, 20% Lancero, 30% Tirador.",
+      tip1: "Patrick usa configuraciones defensivas",
+      tip2: "PD6: 60-20-20, más tanque",
+      tip3: "PD5: 50-20-30, más equilibrado",
+      squadConfig: "Escuadrones Patrick: PD6: 60-20-20, PD5: 50-20-30"
+    },
+    8: {
+      title: "Guardar Configuración",
+      description: "Haz clic en Guardar para confirmar la configuración del escuadrón.",
+      tip1: "Verifica los ratios antes de guardar",
+      tip2: "Puedes editar más tarde si es necesario"
+    },
+    9: {
+      title: "Elige Casilla para Escuadrón",
+      description: "Selecciona un espacio libre para el nuevo escuadrón.",
+      tip1: "Casillas 1-2 para ataque (JA6, JA5)",
+      tip2: "Casillas 3-4 para defensa (PD6, PD5)",
+      tip3: "Organiza por propósito para acceso rápido"
+    },
+    10: {
+      title: "Nombra Tu Escuadrón",
+      description: "Asigna un nombre representativo como JA6 o PD5.",
+      tip1: "Nómbralos: JA6, JA5, PD6, PD5",
+      tip2: "Indica líder y propósito",
+      tip3: "J=Jessie, P=Patrick, A=Ataque, D=Defensa"
+    },
+    11: {
+      title: "Confirma la Creación",
+      description: "Haz clic en Confirmar y repite para los 4 escuadrones.",
+      tip1: "Crea los 4 en una sesión",
+      tip2: "Prueba cada uno en batalla",
+      tip3: "Ajusta según tu experiencia"
+    }
+  }
 };

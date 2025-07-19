@@ -155,67 +155,81 @@ window.translations.pt = {
         ],
         conclusion: 'A seleção do herói da primeira posição pode determinar o sucesso do seu rally!'
     },
-    'steps.1.title': 'Clique em Perfil',
-    'steps.1.description': 'Comece clicando no ícone do seu perfil na interface do jogo. Isso abrirá seu menu de jogador onde você pode acessar vários recursos do jogo.',
-    'steps.1.tip1': 'Certifique-se de estar na tela principal do jogo',
-    'steps.1.tip2': 'O ícone do perfil geralmente fica no canto superior esquerdo',
-
-    'steps.2.title': 'Clique em Tropas',
-    'steps.2.description': 'Navegue até a seção Tropas no menu do seu perfil. Aqui você gerencia todas as suas unidades militares e configurações de esquadrão.',
-    'steps.2.tip1': 'A opção Tropas mostra sua força militar atual',
-    'steps.2.tip2': 'Você pode ver todas as unidades disponíveis aqui',
-
-    'steps.3.title': 'Clique em Esquadrões',
-    'steps.3.description': 'Selecione a opção Esquadrões para acessar a gestão de esquadrões. Aqui você pode criar, modificar e organizar suas formações de batalha.',
-    'steps.3.tip1': 'Você pode ter vários esquadrões para diferentes estratégias',
-    'steps.3.tip2': 'Cada esquadrão pode ter uma configuração única',
-
-    'steps.4.title': 'Selecione o Líder Herói',
-    'steps.4.description': 'Escolha Jessie ou Patrick como líder do esquadrão. Para este tutorial, crie 2 esquadrões com Jessie e 2 com Patrick.',
-    'steps.4.tip1': 'Jessie é ótimo para estratégias ofensivas',
-    'steps.4.tip2': 'Patrick se destaca em formações defensivas',
-    'steps.4.tip3': 'A escolha do líder afeta os bônus do esquadrão',
-    'steps.4.squadConfig': 'Primeiros 2 esquadrões: Jessie | Últimos 2 esquadrões: Patrick',
-
-    'steps.5.title': 'Selecione o Tipo de Balanço',
-    'steps.5.description': 'Escolha a opção de balanço para seu esquadrão. Isso permite personalizar a composição das tropas de acordo com sua estratégia.',
-    'steps.5.tip1': 'O tipo de balanço afeta a distribuição das tropas',
-    'steps.5.tip2': 'Proporções personalizadas dão mais controle',
-
-    'steps.6.title': 'Defina a Proporção de Tropas (60-20-30)',
-    'steps.6.description': 'Para esquadrões Jessie, defina a proporção para 60% Infantaria, 20% Lancer, 30% Atirador. Isso cria uma formação ofensiva equilibrada.',
-    'steps.6.tip1': 'Use os controles deslizantes para ajustar as porcentagens',
-    'steps.6.tip2': 'Certifique-se de que o total seja 100%',
-    'steps.6.tip3': 'JA6 usa proporção 60-20-20, JA5 usa 50-20-30',
-    'steps.6.squadConfig': 'Esquadrões de Ataque (Jessie): JA6: 60-20-20, JA5: 50-20-30',
-
-    'steps.7.title': 'Defina a Proporção de Tropas (50-20-30)',
-    'steps.7.description': 'Para esquadrões Patrick, defina a proporção para 50% Infantaria, 20% Lancer, 30% Atirador. Isso proporciona melhor capacidade defensiva.',
-    'steps.7.tip1': 'Patrick se beneficia de proporções defensivas',
-    'steps.7.tip2': 'PD6 usa 60-20-20 para defesa mais forte',
-    'steps.7.tip3': 'PD5 usa 50-20-30 para defesa equilibrada',
-    'steps.7.squadConfig': 'Esquadrões de Defesa (Patrick): PD6: 60-20-20, PD5: 50-20-30',
-
-    'steps.8.title': 'Salve a Configuração',
-    'steps.8.description': 'Clique no botão Salvar para confirmar a configuração do esquadrão. Certifique-se de que todas as configurações estejam corretas antes de salvar.',
-    'steps.8.tip1': 'Verifique as proporções antes de salvar',
-    'steps.8.tip2': 'Você pode editar os esquadrões depois se necessário',
-
-    'steps.9.title': 'Escolha o Slot do Esquadrão',
-    'steps.9.description': 'Selecione um slot disponível para o novo esquadrão. Organize seus esquadrões logicamente para fácil acesso durante as batalhas.',
-    'steps.9.tip1': 'Use os slots 1-2 para esquadrões de ataque (JA6, JA5)',
-    'steps.9.tip2': 'Use os slots 3-4 para esquadrões de defesa (PD6, PD5)',
-    'steps.9.tip3': 'Organize por finalidade para acesso rápido',
-
-    'steps.10.title': 'Nomeie Seu Esquadrão',
-    'steps.10.description': 'Dê um nome memorável ao seu esquadrão. Considere nomes que indiquem o líder e a estratégia para fácil identificação.',
-    'steps.10.tip1': 'Nomeie exatamente: JA6, JA5, PD6, PD5',
-    'steps.10.tip2': 'Esses códigos indicam líder e propósito',
-    'steps.10.tip3': 'J=Jessie, P=Patrick, A=Ataque, D=Defesa',
-
-    'steps.11.title': 'Confirme a Criação',
-    'steps.11.description': 'Clique em Confirmar para finalizar a criação do esquadrão. Repita este processo para todos os 4 esquadrões conforme as configurações.',
-    'steps.11.tip1': 'Crie todos os 4 esquadrões em uma sessão',
-    'steps.11.tip2': 'Teste cada esquadrão em batalha para verificar a eficácia',
-    'steps.11.tip3': 'Ajuste as proporções conforme sua experiência'
+    steps: {
+        1: {
+            title: 'Clique em Perfil',
+            description: 'Comece clicando no ícone do seu perfil na interface do jogo. Isso abrirá seu menu de jogador onde você pode acessar vários recursos do jogo.',
+            tip1: 'Certifique-se de estar na tela principal do jogo',
+            tip2: 'O ícone do perfil geralmente fica no canto superior esquerdo'
+        },
+        2: {
+            title: 'Clique em Tropas',
+            description: 'Navegue até a seção Tropas no menu do seu perfil. Aqui você gerencia todas as suas unidades militares e configurações de esquadrão.',
+            tip1: 'A opção Tropas mostra sua força militar atual',
+            tip2: 'Você pode ver todas as unidades disponíveis aqui'
+        },
+        3: {
+            title: 'Clique em Esquadrões',
+            description: 'Selecione a opção Esquadrões para acessar a gestão de esquadrões. Aqui você pode criar, modificar e organizar suas formações de batalha.',
+            tip1: 'Você pode ter vários esquadrões para diferentes estratégias',
+            tip2: 'Cada esquadrão pode ter uma configuração única'
+        },
+        4: {
+            title: 'Selecione o Líder Herói',
+            description: 'Escolha Jessie ou Patrick como líder do esquadrão. Para este tutorial, crie 2 esquadrões com Jessie e 2 com Patrick.',
+            tip1: 'Jessie é ótimo para estratégias ofensivas',
+            tip2: 'Patrick se destaca em formações defensivas',
+            tip3: 'A escolha do líder afeta os bônus do esquadrão',
+            squadConfig: 'Primeiros 2 esquadrões: Jessie | Últimos 2 esquadrões: Patrick'
+        },
+        5: {
+            title: 'Selecione o Tipo de Balanço',
+            description: 'Escolha a opção de balanço para seu esquadrão. Isso permite personalizar a composição das tropas de acordo com sua estratégia.',
+            tip1: 'O tipo de balanço afeta a distribuição das tropas',
+            tip2: 'Proporções personalizadas dão mais controle'
+        },
+        6: {
+            title: 'Defina a Proporção de Tropas (60-20-30)',
+            description: 'Para esquadrões Jessie, defina a proporção para 60% Infantaria, 20% Lancer, 30% Atirador. Isso cria uma formação ofensiva equilibrada.',
+            tip1: 'Use os controles deslizantes para ajustar as porcentagens',
+            tip2: 'Certifique-se de que o total seja 100%',
+            tip3: 'JA6 usa proporção 60-20-20, JA5 usa 50-20-30',
+            squadConfig: 'Esquadrões de Ataque (Jessie): JA6: 60-20-20, JA5: 50-20-30'
+        },
+        7: {
+            title: 'Defina a Proporção de Tropas (50-20-30)',
+            description: 'Para esquadrões Patrick, defina a proporção para 50% Infantaria, 20% Lancer, 30% Atirador. Isso proporciona melhor capacidade defensiva.',
+            tip1: 'Patrick se beneficia de proporções defensivas',
+            tip2: 'PD6 usa 60-20-20 para defesa mais forte',
+            tip3: 'PD5 usa 50-20-30 para defesa equilibrada',
+            squadConfig: 'Esquadrões de Defesa (Patrick): PD6: 60-20-20, PD5: 50-20-30'
+        },
+        8: {
+            title: 'Salve a Configuração',
+            description: 'Clique no botão Salvar para confirmar a configuração do esquadrão. Certifique-se de que todas as configurações estejam corretas antes de salvar.',
+            tip1: 'Verifique as proporções antes de salvar',
+            tip2: 'Você pode editar os esquadrões depois se necessário'
+        },
+        9: {
+            title: 'Escolha o Slot do Esquadrão',
+            description: 'Selecione um slot disponível para o novo esquadrão. Organize seus esquadrões logicamente para fácil acesso durante as batalhas.',
+            tip1: 'Use os slots 1-2 para esquadrões de ataque (JA6, JA5)',
+            tip2: 'Use os slots 3-4 para esquadrões de defesa (PD6, PD5)',
+            tip3: 'Organize por finalidade para acesso rápido'
+        },
+        10: {
+            title: 'Nomeie Seu Esquadrão',
+            description: 'Dê um nome memorável ao seu esquadrão. Considere nomes que indiquem o líder e a estratégia para fácil identificação.',
+            tip1: 'Nomeie exatamente: JA6, JA5, PD6, PD5',
+            tip2: 'Esses códigos indicam líder e propósito',
+            tip3: 'J=Jessie, P=Patrick, A=Ataque, D=Defesa'
+        },
+        11: {
+            title: 'Confirme a Criação',
+            description: 'Clique em Confirmar para finalizar a criação do esquadrão. Repita este processo para todos os 4 esquadrões conforme as configurações.',
+            tip1: 'Crie todos os 4 esquadrões em uma sessão',
+            tip2: 'Teste cada esquadrão em batalha para verificar a eficácia',
+            tip3: 'Ajuste as proporções conforme sua experiência'
+        }
+    }
 };

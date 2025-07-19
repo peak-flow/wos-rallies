@@ -155,67 +155,81 @@ window.translations.tr = {
     ],
     conclusion: 'İlk slot kahramanı başarınızın kaderini belirleyebilir!'
   },
-  "steps.1.title": "Profili Tıkla",
-  "steps.1.description": "Oyun ekranında profil simgesine tıklayarak başlayın. Bu, oyuncu menüsünü açar.",
-  "steps.1.tip1": "Ana oyun ekranında olun",
-  "steps.1.tip2": "Profil simgesi sol üsttedir",
-
-  "steps.2.title": "Birlikler'i Tıkla",
-  "steps.2.description": "Profil menüsünden Birlikler bölümüne gidin. Askeri birimlerinizi buradan yönetin.",
-  "steps.2.tip1": "Birlikler mevcut gücünüzü gösterir",
-  "steps.2.tip2": "Tüm birimleri burada görebilirsiniz",
-
-  "steps.3.title": "Takımlar'ı Tıkla",
-  "steps.3.description": "Takım yönetimine erişmek için Takımlar seçeneğini seçin.",
-  "steps.3.tip1": "Farklı stratejiler için çoklu takımlar oluşturabilirsiniz",
-  "steps.3.tip2": "Her takım benzersiz olabilir",
-
-  "steps.4.title": "Lider Kahramanı Seç",
-  "steps.4.description": "Jessie veya Patrick lider olarak seçin. 2 takım Jessie ile, 2 takım Patrick ile oluşturun.",
-  "steps.4.tip1": "Jessie saldırı için uygundur",
-  "steps.4.tip2": "Patrick savunma için iyidir",
-  "steps.4.tip3": "Lider seçimi takım bonuslarını etkiler",
-  "steps.4.squadConfig": "İlk 2 takım: Jessie | Son 2 takım: Patrick",
-
-  "steps.5.title": "Denge Türünü Seç",
-  "steps.5.description": "Takım için denge seçeneğini seçin. Bu, asker dağılımını özelleştirmenizi sağlar.",
-  "steps.5.tip1": "Denge tipi dağılımı belirler",
-  "steps.5.tip2": "Oranları özelleştirerek daha fazla kontrol elde edin",
-
-  "steps.6.title": "Oran Ayarla (60-20-30)",
-  "steps.6.description": "Jessie takımları için oranı %60 Piyade, %20 Süvari, %30 Nişancı olarak ayarlayın.",
-  "steps.6.tip1": "Yüzdelikleri ayarlamak için kaydırıcıları kullanın",
-  "steps.6.tip2": "Toplam %100 olmalı",
-  "steps.6.tip3": "JA6: 60-20-20, JA5: 50-20-30",
-  "steps.6.squadConfig": "Saldırı Takımları (Jessie): JA6: 60-20-20, JA5: 50-20-30",
-
-  "steps.7.title": "Oran Ayarla (50-20-30)",
-  "steps.7.description": "Patrick takımları için oranı %50 Piyade, %20 Süvari, %30 Nişancı olarak ayarlayın.",
-  "steps.7.tip1": "Patrick savunma odaklı oranlardan faydalanır",
-  "steps.7.tip2": "PD6: 60-20-20, daha tanky yapı",
-  "steps.7.tip3": "PD5: 50-20-30, dengeli yapı",
-  "steps.7.squadConfig": "Savunma Takımları (Patrick): PD6: 60-20-20, PD5: 50-20-30",
-
-  "steps.8.title": "Yapıyı Kaydet",
-  "steps.8.description": "Takım yapısını onaylamak için Kaydet düğmesine tıklayın.",
-  "steps.8.tip1": "Kaydetmeden önce oranları tekrar kontrol edin",
-  "steps.8.tip2": "Daha sonra düzenleme yapabilirsiniz",
-
-  "steps.9.title": "Takım Slotu Seç",
-  "steps.9.description": "Yeni takımınız için boş bir slot seçin.",
-  "steps.9.tip1": "1-2. slotlar saldırı için (JA6, JA5)",
-  "steps.9.tip2": "3-4. slotlar savunma için (PD6, PD5)",
-  "steps.9.tip3": "Amaca göre düzenleyin",
-
-  "steps.10.title": "Takımı Adlandır",
-  "steps.10.description": "Takımınıza hatırlanabilir bir isim verin. Kodlar: JA6, JA5, PD6, PD5.",
-  "steps.10.tip1": "Aynen böyle adlandırın: JA6, JA5, PD6, PD5",
-  "steps.10.tip2": "Kodlar lideri ve stratejiyi gösterir",
-  "steps.10.tip3": "J=Jessie, P=Patrick, A=Saldırı, D=Savunma",
-
-  "steps.11.title": "Oluşturmayı Onayla",
-  "steps.11.description": "Tüm 4 takımı yukarıdaki yapılarla oluşturarak işlemi tamamlayın.",
-  "steps.11.tip1": "Hepsini tek oturumda oluşturun",
-  "steps.11.tip2": "Her takımı savaşta test edin",
-  "steps.11.tip3": "Deneyime göre oranları ayarlayın"
+  steps: {
+    1: {
+      title: "Profili Tıkla",
+      description: "Oyun ekranında profil simgesine tıklayarak başlayın. Bu, oyuncu menüsünü açar.",
+      tip1: "Ana oyun ekranında olun",
+      tip2: "Profil simgesi sol üsttedir"
+    },
+    2: {
+      title: "Birlikler'i Tıkla",
+      description: "Profil menüsünden Birlikler bölümüne gidin. Askeri birimlerinizi buradan yönetin.",
+      tip1: "Birlikler mevcut gücünüzü gösterir",
+      tip2: "Tüm birimleri burada görebilirsiniz"
+    },
+    3: {
+      title: "Takımlar'ı Tıkla",
+      description: "Takım yönetimine erişmek için Takımlar seçeneğini seçin.",
+      tip1: "Farklı stratejiler için çoklu takımlar oluşturabilirsiniz",
+      tip2: "Her takım benzersiz olabilir"
+    },
+    4: {
+      title: "Lider Kahramanı Seç",
+      description: "Jessie veya Patrick lider olarak seçin. 2 takım Jessie ile, 2 takım Patrick ile oluşturun.",
+      tip1: "Jessie saldırı için uygundur",
+      tip2: "Patrick savunma için iyidir",
+      tip3: "Lider seçimi takım bonuslarını etkiler",
+      squadConfig: "İlk 2 takım: Jessie | Son 2 takım: Patrick"
+    },
+    5: {
+      title: "Denge Türünü Seç",
+      description: "Takım için denge seçeneğini seçin. Bu, asker dağılımını özelleştirmenizi sağlar.",
+      tip1: "Denge tipi dağılımı belirler",
+      tip2: "Oranları özelleştirerek daha fazla kontrol elde edin"
+    },
+    6: {
+      title: "Oran Ayarla (60-20-30)",
+      description: "Jessie takımları için oranı %60 Piyade, %20 Süvari, %30 Nişancı olarak ayarlayın.",
+      tip1: "Yüzdelikleri ayarlamak için kaydırıcıları kullanın",
+      tip2: "Toplam %100 olmalı",
+      tip3: "JA6: 60-20-20, JA5: 50-20-30",
+      squadConfig: "Saldırı Takımları (Jessie): JA6: 60-20-20, JA5: 50-20-30"
+    },
+    7: {
+      title: "Oran Ayarla (50-20-30)",
+      description: "Patrick takımları için oranı %50 Piyade, %20 Süvari, %30 Nişancı olarak ayarlayın.",
+      tip1: "Patrick savunma odaklı oranlardan faydalanır",
+      tip2: "PD6: 60-20-20, daha tanky yapı",
+      tip3: "PD5: 50-20-30, dengeli yapı",
+      squadConfig: "Savunma Takımları (Patrick): PD6: 60-20-20, PD5: 50-20-30"
+    },
+    8: {
+      title: "Yapıyı Kaydet",
+      description: "Takım yapısını onaylamak için Kaydet düğmesine tıklayın.",
+      tip1: "Kaydetmeden önce oranları tekrar kontrol edin",
+      tip2: "Daha sonra düzenleme yapabilirsiniz"
+    },
+    9: {
+      title: "Takım Slotu Seç",
+      description: "Yeni takımınız için boş bir slot seçin.",
+      tip1: "1-2. slotlar saldırı için (JA6, JA5)",
+      tip2: "3-4. slotlar savunma için (PD6, PD5)",
+      tip3: "Amaca göre düzenleyin"
+    },
+    10: {
+      title: "Takımı Adlandır",
+      description: "Takımınıza hatırlanabilir bir isim verin. Kodlar: JA6, JA5, PD6, PD5.",
+      tip1: "Aynen böyle adlandırın: JA6, JA5, PD6, PD5",
+      tip2: "Kodlar lideri ve stratejiyi gösterir",
+      tip3: "J=Jessie, P=Patrick, A=Saldırı, D=Savunma"
+    },
+    11: {
+      title: "Oluşturmayı Onayla",
+      description: "Tüm 4 takımı yukarıdaki yapılarla oluşturarak işlemi tamamlayın.",
+      tip1: "Hepsini tek oturumda oluşturun",
+      tip2: "Her takımı savaşta test edin",
+      tip3: "Deneyime göre oranları ayarlayın"
+    }
+  }
 };
